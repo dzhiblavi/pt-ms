@@ -1,0 +1,36 @@
+\section{Постановка выборочной статистической модели. Точечная оценка параметра
+  и характеристики.}
+  %:: NOTE a:dolzhanskii
+  %:: NOTE check
+
+\begin{definition}
+	Напомним, что \textit{точечной оценкой} параметра $\theta$ или какой-либо
+	функции $g(\theta)$ называют численную оценку этой величины.
+\end{definition}
+
+\textit{Пусть $\hat{g}_n$ является некоторой точечной оценкой $g = g(\theta)$.}
+
+\begin{definition}
+	$\hat{g}_n$ называется \textit{несмещенной}, если $E(\hat{g}_n) = g(\theta).$
+\end{definition}
+
+\begin{definition}
+	$\hat{g}_n$ называется \textit{состоятельной}, если
+	$\hat{g}_n \xLongrightarrow[P]{} g(\theta)$ при $n \to \infty$.
+\end{definition}
+
+\begin{definition}
+	$\hat{g}_n$ называется \textit{асимптотически нормальной}, если
+	\[
+		\frac{\sqrt{n}(\hat{g}_n - g(\theta))}{\sigma(g(\theta))}
+	\xrightarrow[n \to \infty]{} N(0, 1)
+	.\]
+\end{definition}
+
+\begin{definition}
+	$\hat{g}_n$ называется \textit{эффективной} в классе оценок $K$, если для
+	любой другой оценки $\hat{g}^*_n \in K$ имеет место неравенство:
+	\[
+		E(\hat{g}_n - g(\theta))^2 \leqslant E(\hat{g}^*_n - g(\theta))^2
+	.\]
+\end{definition}

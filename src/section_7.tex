@@ -1,51 +1,51 @@
 \section{Определение несмещенности и асимптотической нормальности оценки
     характеристики. Построение доверительного интервала для характеристики 
-на базе асимптотической нормальности ее оценки.}
-%:: NOTE a:dzhiblavi
-%:: NOTE check
+    на базе асимптотической нормальности ее оценки.}
+    %:: NOTE a:dzhiblavi
+    %:: NOTE check
 
 \begin{definition}
-    Напомним, оценка называется \textit{несмещенной}, если
-    \[
-        b(\hat{g}, \theta) = g(\theta) - E_\theta(\hat{g}) = 0
-    .\]
+	Напомним, оценка называется \textit{несмещенной}, если
+	\[
+		b(\hat{g}, \theta) = g(\theta) - E_\theta(\hat{g}) = 0
+	.\]
 \end{definition}
 
 \begin{definition}
-    Последовательность оценок $\hat{g}_n$ называется \textit{асимптотически
-    нормальной}, если
-    \[
-        \sqrt{n} \cdot (\hat{g}_n - g(\theta)) = 
-        Y_n \xrightarrow[]{P_{n, \theta}} Y \sim N(0, \Delta^2(\theta)) 
-    .\]
+	Последовательность оценок $\hat{g}_n$ называется \textit{асимптотически
+	нормальной}, если
+	\[
+		\sqrt{n} \cdot (\hat{g}_n - g(\theta)) = 
+	Y_n \xrightarrow[]{P_{n, \theta}} Y \sim N(0, \Delta^2(\theta)) 
+	.\]
 \end{definition}
 
 \begin{definition}
-    Величина $\Delta(\theta)$ из определения асимптотически нормальной
-    оценки называется \textit{нормирующим множителем}. 
+	Величина $\Delta(\theta)$ из определения асимптотически нормальной
+	оценки называется \textit{нормирующим множителем}. 
 \end{definition}
 
 \begin{remark}
-    Определение асимптотически нормальной оценки можно переписать так:
-    \[
-        \frac{\sqrt{n} \cdot (\hat{g}_n - g(\theta))}{\Delta(\theta)}
-        \xrightarrow[]{P_{n, \theta}} Y \sim N(0, 1)
-    .\]
+	Определение асимптотически нормальной оценки можно переписать так:
+	\[
+		\frac{\sqrt{n} \cdot (\hat{g}_n - g(\theta))}{\Delta(\theta)}
+	\xrightarrow[]{P_{n, \theta}} Y \sim N(0, 1)
+	.\]
 \end{remark}
 
 На базе асимптотической нормальности можно построить доверительный интервал.
 Выпишем определение асимптотической нормальности:
 \[
-    Y_n = \frac{\sqrt{n} \cdot (\hat{g} - g(\theta))}{\Delta(\theta)} 
+	Y_n = \frac{\sqrt{n} \cdot (\hat{g} - g(\theta))}{\Delta(\theta)} 
     \to N(0, 1)
 .\]
 Это буквально означает:
 \[
-    P_{n, \theta}(Y_n < t) \to F_{N(0, 1)}(t) 
+	P_{n, \theta}(Y_n < t) \to F_{N(0, 1)}(t) 
 .\]
 Раскроем определение $Y_n$, возьмем его по модулю и воспользуемся квантилью:
 \[
-    P_{n, \theta}\parens*{\abs*{\frac{\sqrt{n} 
+	P_{n, \theta}\parens*{\abs*{\frac{\sqrt{n} 
     \cdot (\hat{g} - g(\theta))}{\Delta(\theta)} } < t_\gamma} \to \gamma \Llra
     P_{n, \theta}\parens*{\frac{\Delta(\theta)}{\sqrt{n}}t_\gamma + \hat{g}
     > g(\theta) > -\frac{\Delta(\theta)}{\sqrt{n}}t_\gamma + \hat{g}} \to \gamma
