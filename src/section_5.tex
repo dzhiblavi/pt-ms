@@ -1,0 +1,37 @@
+\section{Вид квадратичного риска в случае одномерной характеристики.}
+
+\begin{definition}
+    \textit{Смещением} оценки называется величина
+    \[
+        b(\hat{g}, \theta) = g(\theta) - E_\theta(\hat{g})
+    .\]
+\end{definition}
+
+\begin{definition}
+    Оценка называется \textit{несмещенной}, если $b(\hat{g}, \theta) = 0$.
+\end{definition}
+
+\begin{theorem}
+    $R_2(\hat{g}, \theta) = D_\theta(\hat{g}) + b^2(\hat{g}, \theta)$.
+\end{theorem}
+\begin{proof}
+    \begin{align*}
+        R_2(\hat{g}, \theta) 
+        &= E_\theta(\norm{\hat{g} - g(\theta)}^2) =
+        E_\theta(\hat{g} - E_\theta(\hat{g}) - (g(\theta) -
+        E_\theta(\hat{g})))^2 \\
+        &= E_\theta(\hat{g} - E_\theta(\hat{g}))^2 + (g(\theta) - 
+        E_\theta(\hat{g}))^2 - \underbrace{2(g(\theta) - E_\theta(\hat{g}))
+        (E_\theta{\hat{g}} - E_\theta{\hat{g}})}_0 \\
+        &= D_\theta{\hat{g}} + b^2(\hat{g}, \theta)
+    .\end{align*}
+\end{proof}
+
+\begin{corollary}
+    Для одномерных несмещенных оценок квадратичный риск в точности равен
+    дисперсии оценки:
+    \[
+        R_2(\hat{g}, \theta) = D_\theta(\hat{g})
+    .\]
+\end{corollary}
+

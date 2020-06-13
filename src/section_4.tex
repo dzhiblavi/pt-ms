@@ -1,0 +1,105 @@
+\section{Функции потерь и функции риска, состоятельность оценки характеристики, 
+достаточное условие для состоятельности оценки.}
+%:: NOTE a:dzhiblavi
+%:: NOTE check
+
+\begin{definition}
+    \textit{Оценкой} $g(\theta)$ называется статистика вида
+    \[
+        \hat{g} \colon \cX \to g(\Theta)
+    .\]
+\end{definition}
+
+\begin{definition}
+    Пусть $\hat{g}(\theta)$ -- оценка $g(\theta)$. Тогда \textit{функцией
+    потерь} называется неотрицательная функция $l(\hat{g}, g(\theta))$, 
+    характеризующая ``близость'' оценки к настоящему значению.
+\end{definition}
+
+\begin{remark}
+    Обычно в качестве функции потерь рассматривают функцию вида
+    \[
+        l(\hat{g}, g(\theta)) = \omega(\norm{\hat{g}, g(\theta)})
+    .\]
+    Здесь $\omega$ -- неотрицательная монотонно возрастающая функция,
+    $\omega(0) = 0$.
+\end{remark}
+
+\begin{remark}
+    $l$ являтся случайной величиной.
+\end{remark}
+
+\begin{definition}
+    \textit{Риском} называется функция
+    \[
+        R(\hat{g}, \theta) \defeq E_{\theta}(l(\hat{g}, g(\theta))) 
+    .\]
+\end{definition}
+
+\begin{remark}
+    Риск -- функция параметра $\theta$ и способа оценивания $\hat{g}$.
+\end{remark}
+
+Опишем самые важные для нас виды функции потерь и риска.
+
+\begin{definition}
+    Определим функцию потерь индикатором отклонений:
+    \[
+        l^\delta(\hat{g}, g(\theta)) = \omega^\delta(\norm{\hat{g}, g(\theta)})
+    .\] 
+    Где
+    \[
+        \omega(t) = \mathbb{1}_\delta(t) = \begin{cases}
+            0,~ t < \delta  \\
+            1,~ t \geqslant \delta
+        \end{cases}
+    .\]
+    Соответствующий риск будет вероятностью отклонения:
+    \[
+        R^\delta(\hat{g}, \theta) = E_{\theta}(l(\hat{g}, g(\theta))) =
+        0 \cdot P_\theta(\norm{\hat{g} - g(\theta)} < \delta) +
+        1 \cdot P_\theta(\norm{\hat{g} - g(\theta)} \geqslant \delta) =
+        P_\theta(\norm{\hat{g} - g(\theta)} \geqslant \delta)
+    .\]
+\end{definition}
+
+\begin{definition}
+    При асимптотическом подходе оценка называется \textit{состоятельной},
+    если 
+    \[
+        \forall \delta > 0~ R^\delta(\hat{g}_n, \theta) =
+        P_{n, \theta}(\norm{\hat{g}_n - g(\theta)} \geqslant \delta)
+        \xrightarrow[n \to +\infty]{} 0
+    .\]
+    Или, что то же самое:
+    \[
+        \hat{g}_n \xrightarrow[n \to +\infty]{P_{n, \theta}} g(\theta)
+    .\]
+\end{definition}
+
+\begin{definition}
+    \textit{Квадратичной функцией потерь} называется функция
+    \[
+        l_2(\hat{g}, g(\theta)) = \norm{\hat{g} - g(\theta)}^2
+    .\]
+    Соответствующий ей риск называется \textit{квадратичным}:
+    \[
+        R_2(\hat{g}, \theta) = E_\theta(\norm{\hat{g} - g(\theta)}^2)
+    .\]
+\end{definition}
+
+\begin{theorem}(Достаточное условие для состоятельности оценки)
+    
+    $R_2(\hat{g}_n, \theta) \xrightarrow[n \to +\infty]{} 0 \Lra$ оценка
+    состоятельна.
+\end{theorem}
+\begin{proof}
+    \begin{align*}
+        \forall \delta > 0~ R^\delta(\hat{g}_n, \theta)
+        &= P(\norm{\hat{g}_n - g(\theta)} \geqslant \delta) =
+        P(\norm{\hat{g}_n - g(\theta)}^2 \geqslant \delta^2)  \\
+        &\leqslant \frac{E_\theta(\norm{\hat{g}_n - g(\theta)}^2)}{\delta^2} =
+        \frac{R_2(\hat{g}_n, \theta)}{\delta^2} \xrightarrow[n \to +\infty]{} 0
+    .\end{align*} 
+\end{proof}
+
