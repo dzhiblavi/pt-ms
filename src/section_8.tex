@@ -1,0 +1,49 @@
+\section{Постановка задачи проверки гипотез}
+
+\begin{definition}
+	\textit{Гипотезой} называется множесто предполагаемых зафиксированных значений
+	некоторого подмножества неизвестных параметров:
+	\[
+		H: \theta \in \Theta_{H} \subseteq \Theta
+	\]
+\end{definition}
+
+\begin{definition}
+	Гипотезу называют \textit{простой}, если $|H| = 1$
+\end{definition}
+
+\begin{definition}
+	Гипотезу называют \textit{сложной}, если $|H| > 1$
+\end{definition}
+
+\begin{definition}
+	Гипотезами \textit{согласия} называют набор из двух гипотез: основной $H_0$ и
+	альтернативы $H_1$, причем $H_0 = \overline{H_1}$
+\end{definition}
+
+\begin{definition}
+	Правило принятия или отклонения основной гипотезы $H_0$ называют
+	\textit{тестом (критерием)} проверки гипотезы:
+	\[
+		\varphi(\cX): \cX_{n} \to \{0, 1\}
+	\]
+	При этом:
+	\begin{itemize}
+		\item $\cX_{n, 0}$ называют \textit{допустимым множеством}
+		\item $\cX_{n, 1}$ называют \textit{критическим множеством}
+		\item $\cX_{n, 0} \sqcup \cX_{n, 1} = \cX_{n}$
+	\end{itemize}
+\end{definition}
+
+\begin{definition}
+	Случайная величина $L(\overline{\cX}): \cX_n \to \R$ называется
+	\textit{тестовой статистикой}, если она служит порогом для правила принятия
+	или отклонения основной гипотезы:
+	\[
+		\varphi(\overline{\cX}) = \begin{cases}
+			0,~ L(\overline{\cX}) < T \> (H_0) \\
+			1,~ L(\overline{\cX}) \geqslant T \> (H_1)
+		\end{cases}
+	\]
+	Где $T$ называют \textit{порогом принятия решения}.
+\end{definition}
