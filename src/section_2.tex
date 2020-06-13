@@ -1,0 +1,80 @@
+\section{Частота как оценка вероятности события и её свойства.
+    Построение доверительного интервала для вероятности события
+на базе асимптотической нормальности частоты.}
+%:: NOTE a:dzhiblavi
+%:: NOTE check
+
+\begin{theorem}(Яков, Бернулли)
+
+    Пусть имеется $\xi_i \sim \xi$ -- последовательность одинаково 
+    распределенных и попарно независимых случайных величин. Пусть
+    \[
+        \overline{\xi}_n = \frac{1}{n} \sum_{i = 1}^n{\xi_n} = \frac{k_n}{n}
+    .\]
+    Тогда
+    \[
+        \overline{\xi}_n \underset{n \to +\infty}{\rcon} p
+    .\]
+\end{theorem}
+
+\begin{theorem}(Центральная предельная теорема, простейший вариант)
+
+    Пусть случайные величины $X_i \sim X$ независимы и одинаково распределены,
+    причем $\exists E(X), D(X)$. Тогда для случайной величины
+    \[
+        Y_n = \frac{\overline{X}_n - E\parens*{\overline{X}_n}}
+        {\sigma\parens*{\overline{X}_n}}
+    .\]
+    Верно:
+    \[
+        F_{Y_n} \underset{\R}{\rcon} F_{N(0, 1)}
+    .\]
+\end{theorem}
+
+\begin{theorem}(Свойства частоты как оценки $p$)
+
+    Пусть $\xi \sim B(p)$. Тогда 
+    \[
+        \hat{p} = \frac{k_n}{n}
+    \]
+    Является несмещенной асимптотически нормальной оценкой $p$, то есть
+    \[
+        E(\hat{p}) = p,
+    \]
+    \[
+        \sqrt{n} \cdot (\hat{p} - p) = Y_n \xrightarrow[n \to +\infty]{} Y 
+        \sim N(0, \Delta^2(p)),~ \Delta^2(p) = p(1 - p)
+    .\]
+\end{theorem}
+\begin{proof}
+    \enewline
+    \begin{itemize}
+        \item Покажем несмещенность:
+            \[
+                E(\hat{p}) = E\parens*{\frac{k_n}{n}} = \frac{1}{n} np = p
+            .\]
+        \item Асимптотическая нормальность с нормирующим множителем
+            $\Delta^2(p) = p(1 - p)$ следует непосредственно из
+            центральной предельной теоремы.
+    \end{itemize}
+\end{proof}
+
+На базе асимптотической нормальности можно построить доверительный интервал.
+Проделаем это на примере частоты. Выпишем определение асимптотической
+нормальности:
+\[
+    Y_n = \frac{\sqrt{n} \cdot (\hat{p} - p)}{\sqrt{p(1 - p)}} \to N(0, 1)
+.\]
+Это буквально означает:
+\[
+    P_{n, \theta}(Y_n < t) \to F_{N(0, 1)}(t) 
+.\]
+Раскроем определение $Y_n$, возьмем его по модулю и воспользуемся квантилью:
+\[
+    P_{n, \theta}\parens*{\abs*{\frac{\sqrt{n} 
+    \cdot (\hat{p} - p)}{\sqrt{p(1 - p)}} } < t_\gamma} \to \gamma \Llra
+    P_{n, \theta}\parens*{\frac{\sqrt{p(1 - p)}}{\sqrt{n}}t_\gamma + \hat{p}
+    > p > -\frac{\sqrt{p(1 - p)}}{\sqrt{n}}t_\gamma + \hat{p}} \to \gamma
+.\]
+Здесь $\gamma = P(|\xi| < t_\gamma),~ \xi \sim N(0, 1)$.
+
