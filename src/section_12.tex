@@ -37,16 +37,32 @@
   Смирнова.
 \end{remark}
 
+Пусть $\cF_c$ == множество всех непрерывных функций распределения.
+
 \begin{theorem}(Колмогоров)
 
-  Пусть $\cF_c$ == множество всех непрерывных функций распределения.
-  Тогда:
   \[
-    P_x(\sqrt{n} \rho_{\infty} (F_n, F_x) < u) \xlongrightarrow[n \to \infty]{}
-    \mathcal{K}(u) = \begin{cases}
+    P_{n, F}(\sqrt{n} \rho_{\infty} (F_n, F_x) < u)
+    \xlongrightarrow[n \to \infty]{} \mathcal{K}(u) = \begin{cases}
       0,~ u = 0\\
       \sum\limits_{j = -\infty}^{+\infty} (-1)^j e^{-2 (ju)^2},~ u > 0
     \end{cases}
+  .\]
+
+\end{theorem}
+
+\begin{theorem}(Мизес-Смирнов)
+
+  \[
+    P_{n, F}(\sqrt{n} \rho^{2}_{2} (F_n, F_x) < u)
+    \xlongrightarrow[n \to \infty]{} \mathcal{S}(u)
+  ,\]
+
+  где $\mathcal{S}(u)$ есть функция распределения следующей случайной величины:
+
+  \[
+    \mathcal{U} = \sum\limits_{j = 1}^{\infty} \frac{\xi^2_j}{j^2 \pi^2},~
+    \xi_1, \ldots, \xi_n, \ldots \sim N(0, 1),~ \text{независимые}
   .\]
 
 \end{theorem}
@@ -60,12 +76,11 @@
   \textit{Доверительной полосой} называют часть плоскости, в которую с
   надежностью $\gamma$ попадает функция распределения генеральной совокупности:
   \[
-  \text{полоса}
   \begin{cases}
     F^{-}_n(t) = max(0, F_n(t) - \frac{u_{\gamma}}{\sqrt{n}})\\
     F^{+}_n(t) = min(1, F_n(t) + \frac{u_{\gamma}}{\sqrt{n}})
   \end{cases}
-  ,~ \text{где} \mathcal{K}(u_{\gamma}) = \gamma
+  ,~ \text{где}~ \mathcal{K}(u_{\gamma}) = \gamma
   .\]
 \end{definition}
 
@@ -91,6 +106,3 @@
     \xlongrightarrow[]{\text{th. Колмогорова}} \mathcal{K}(u_{\gamma}) = \gamma
   .\end{align*}
 \end{proof}
-
-%:: NOTE a:dolzhanskii
-%:: NOTE Отсутствует теорема Мизеса-Смирнова
