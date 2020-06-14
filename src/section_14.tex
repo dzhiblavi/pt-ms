@@ -37,9 +37,21 @@
 
 \subsection{Асимптотическая нормальность, свойства асимптотической нормальности оценок}
 
-Определение (для одномерного параметра \theta, g(\theta))
-
-Последовательность оценок $\hat{g}_n$ характеристики $g(\theta)$ $def$ асимптотически нормальной с ас. дисперсией $\Delta^2(\theta) \textgreater 0$, если сл. в. $Y_n = sqrt(n)(\hat{g}_n - g(\theta))$ сходится по $P_{n, x}$ - распределению к нормальной сл. в. $Y$ с нулевым средним и дисперсией $\Delta^2(\theta)$
+Определение (для одномерного параметра $\theta$, $g(\theta)$)
+Последовательность оценок $\hat{g}_n$ характеристики $g(\theta)$ $def$ асимптотически нормальной с ас. дисперсией $\Delta^2(\theta) \textgreater 0$, если сл. в. $Y_n = \sqrt{n}(\hat{g}_n - g(\theta))$ сходится по $P_{n, x}$ - распределению к нормальной сл. в. $Y$ с нулевым средним и дисперсией $\Delta^2(\theta)$
 \[
   (1)~ Y_n \xrightarrow[n \to \infty]{P_{n, x}} Y \sim N(0, \Delta^2(p))
 .\]
+
+Перепишем $(1)$
+\[
+  \hat{g}_n = g(\theta) + \frac{Y_n}{\sqrt{n}}, где Y_n \xrightarrow[n \to \infty]{P_{n, x}} Y \sim N(0, \Delta^2(p))
+.\], то есть
+$\hat{g}_n - g(\theta)$ - отклонение оценки от неизвестного значения оцениваемой характеристики имеет приближенно нормальное распределение с нулевым средним и дисперсией $\frac{\Delta^2(\theta)}{n}$
+
+%:: NOTE T letter
+
+$\Delta(\theta)$ - $def$ нормирующим множителем и $P_{n, \theta}(\frac{Y_n}{\Delta(\theta)} \textless t) \xrightarrow[n \to \infty]{} F_{N(0, 1)}(t) \Rightarrow{} P_{n, x}(|\hat{g}_n - g(\theta)| \textless \frac{T(\Delta(\theta))} {\sqrt{n}}) \xrightarrow[n \to \infty]{} 2\Phi(T) - 1 = \g \Rightarrow{} T = \frac{1 + \g}{2}$ - квантиль $N(0, 1)$;
+$\g$ - надежность, $\delta_n = T_{\frac{1 + \g}{2}}\frac{\Delta}{(\theta)}$ - точность оценки.
+$(\hat{g}_n - \delta_n, \hat{g}_n + \delta_n)$ - асимптотически доверительный интервал надежности $\g$.
+Если при этом
