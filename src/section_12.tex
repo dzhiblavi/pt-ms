@@ -1,0 +1,96 @@
+\section{Свойства ЭФР в целом. Расстояние Колмогорова, Смирнова. Теоремы
+Гливенко-Кантелли, Колмогорова, Мизеса-Смирнова. Построение доверительной
+полосы для функции распределения.}
+%:: NOTE a:dolzhanskii
+%:: NOTE check
+
+\textit{Со свойствами ЭФР можно ознакомиться в предыдущем разделе.}
+
+\begin{definition}
+  \textit{Расстояние Колмогорова}:
+  \[
+    \rho_{\infty} (F_n, F_x) = \sup_{t}|F_n(t) - F_x(t)|
+  .\]
+\end{definition}
+
+\begin{definition}
+  \textit{Расстояние Смирнова}:
+  \[
+    \rho^{2}_{2} (F_n, F_x) = \int\limits_{\mathbb{R}}(F_n(t) - F_x(t))^2
+    dF_x(t)
+  .\]
+\end{definition}
+
+\begin{theorem}(Гливенко-Кантелли)
+
+  Пусть $\cF$ -- множество функций распределения.
+  Тогда $\forall F_x(t) \in \cF$ верно:
+  \[
+    \rho_{\infty} (F_n, F_x) \xlongrightarrow[n \to \infty]{p=1} 0 \Rightarrow
+    \rho_{\infty} (F_n, F_x) \xlongrightarrow[p]{} 0
+  .\]
+
+\end{theorem}
+
+\begin{remark}
+  $F_n(t)$ -- состоятельная оценка $F_x(t)$ в расстояниях Колмогорова и
+  Смирнова.
+\end{remark}
+
+\begin{theorem}(Колмогоров)
+
+  Пусть $\cF_c$ == множество всех непрерывных функций распределения.
+  Тогда:
+  \[
+    P_x(\sqrt{n} \rho_{\infty} (F_n, F_x) < u) \xlongrightarrow[n \to \infty]{}
+    \mathcal{K}(u) = \begin{cases}
+      0,~ u = 0\\
+      \sum\limits_{j = -\infty}^{+\infty} (-1)^j e^{-2 (ju)^2},~ u > 0
+    \end{cases}
+  .\]
+
+\end{theorem}
+
+\begin{remark}
+  Используя теорему Колмогорова, можно построить доверительную полосу для
+  функции распределения.
+\end{remark}
+
+\begin{definition}
+  \textit{Доверительной полосой} называют часть плоскости, в которую с
+  надежностью $\gamma$ попадает функция распределения генеральной совокупности:
+  \[
+  \text{полоса}
+  \begin{cases}
+    F^{-}_n(t) = max(0, F_n(t) - \frac{u_{\gamma}}{\sqrt{n}})\\
+    F^{+}_n(t) = min(1, F_n(t) + \frac{u_{\gamma}}{\sqrt{n}})
+  \end{cases}
+  ,~ \text{где} \mathcal{K}(u_{\gamma}) = \gamma
+  .\]
+\end{definition}
+
+\pagebreak
+
+\begin{proposition}
+  \[
+    P_x(F^{-}_n(t) \leqslant F_x(t) \leqslant F^{+}_n(t))
+    \xlongrightarrow[n \to \infty]{} \gamma
+  .\]
+\end{proposition}
+\begin{proof}
+  $0 \leqslant F_x(t) \leqslant 1$ всегда, тогда:
+  \begin{align*}
+    P_x(F^{-}_n(t) \leqslant F_x(t) \leqslant F^{+}_n(t)) = \\
+    &=P_x(F_n(t) - \frac{u_{\gamma}}{\sqrt{n}} \leqslant F_x(t) \leqslant
+    F_n(t) + \frac{u_{\gamma}}{\sqrt{n}}) \overset{\forall t}{\underset{}{=}} \\
+    &\overset{\forall t}{\underset{}{=}}
+    P_x(\sqrt{n} |F_x(t) - F_n(t)| \leqslant u_{\gamma})
+    \overset{\forall t}{\underset{}{=}} \\
+    &\overset{\forall t}{\underset{}{=}}
+    P_x(\sup_{t} |F_x(t) - F_n(t)| \leqslant u_{\gamma})
+    \xlongrightarrow[]{\text{th. Колмогорова}} \mathcal{K}(u_{\gamma}) = \gamma
+  .\end{align*}
+\end{proof}
+
+%:: NOTE a:dolzhanskii
+%:: NOTE Отсутствует теорема Мизеса-Смирнова
