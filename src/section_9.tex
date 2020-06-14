@@ -1,0 +1,58 @@
+\section{Ошибки первого и второго рода и их вероятности как критерий качества
+критерия (теста) проверки гипотез. Подход Неймана-Пирсона.}
+%:: NOTE a:dolzhanskii
+%:: NOTE check
+
+\begin{definition}
+  \textit{Ошибкой I рода} называют отклонение основной гипотезы, в то
+  время как она была верна.
+\end{definition}
+
+\begin{definition}
+  \textit{Ошибкой II рода} называют принятие основной гипотезы, в то
+  время как она не была верна.
+\end{definition}
+
+\begin{definition}
+  $\alpha$ называют \textit{вероятностью ошибки I рода}:
+  \[
+    \alpha(\varphi, \theta) \defeq P_{\theta}(\cX_{n, 1}),~
+    \theta \in \Theta_{H_0}
+  .\]
+\end{definition}
+
+\begin{definition}
+  \textit{Уровнем значимости теста} называют верхнюю границу вероятности ошибки
+  I рода по всем возможным наблюдаемым значениям неизвестных параметров,
+  отвечающих основной гипотезе:
+  \[
+    \alpha(\varphi) \defeq \sup_{\theta \in \Theta_{H_0}} \alpha(\varphi, \theta)
+  .\]
+\end{definition}
+
+\begin{definition}
+  $\beta$ называют \textit{вероятностью ошибки II рода}:
+  \[
+    \beta(\varphi, \theta) \defeq P_{\theta}(\cX_{n, 0}),~
+    \theta \in \Theta_{H_1}
+  .\]
+\end{definition}
+
+\begin{definition}
+  \textit{Мощностью теста} называют следующую величину:
+  \[
+    \gamma(\varphi, \theta) \defeq 1 - \beta(\varphi, \theta)
+  .\]
+\end{definition}
+
+\paragraph{Подход Неймана-Пирсона.}\mbox{}\\
+Зафиксируем $\alpha \in (0, 1)$ (обычно выбирают малое значение). Будем считать
+это значение минимальной допустимой величиной ошибки I рода (\textit{допустимый
+уровень значимости}).\\
+Рассмотрим множество всех тестов таких, что:
+\[
+  \overline{\Phi}_\alpha = \{\varphi = \varphi(x) \mid \alpha(\varphi) \leqslant
+  \alpha\}
+.\]
+Среди этих тестов выбирается тест с минимальным значением $\beta$.\\
+В асимптотических задачах ограничения накладываются на предельные значения.
