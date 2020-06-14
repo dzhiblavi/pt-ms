@@ -15,9 +15,11 @@
 
 \begin{definition}
   \textit{Расстояние Смирнова}:
+%:: NOTE d в интеграле ставится не так (см. исправление)
   \[
     \rho^{2}_{2} (F_n, F_x) = \int\limits_{\mathbb{R}}(F_n(t) - F_x(t))^2
-    dF_x(t)
+%:: NOTE replaced dF_x(t)
+    \dd F_x(t)
   .\]
 \end{definition}
 
@@ -29,6 +31,8 @@
     \rho_{\infty} (F_n, F_x) \xlongrightarrow[n \to \infty]{p=1} 0 \Rightarrow
     \rho_{\infty} (F_n, F_x) \xlongrightarrow[p]{} 0
   .\]
+%:: NOTE эта формулировка не соответствует интернетной/positinov
+%:: NOTE то же верно и для \rho_2, см. конспект
 
 \end{theorem}
 
@@ -37,7 +41,7 @@
   Смирнова.
 \end{remark}
 
-Пусть $\cF_c$ == множество всех непрерывных функций распределения.
+Пусть $\cF_c$ -- множество всех непрерывных функций распределения.
 
 \begin{theorem}(Колмогоров)
 
@@ -51,7 +55,7 @@
 
 \end{theorem}
 
-\begin{theorem}(Мизес-Смирнов)
+\begin{theorem}(Мизес, Смирнов)
 
   \[
     P_{n, F}(\sqrt{n} \rho^{2}_{2} (F_n, F_x) < u)
@@ -62,7 +66,7 @@
 
   \[
     \mathcal{U} = \sum\limits_{j = 1}^{\infty} \frac{\xi^2_j}{j^2 \pi^2},~
-    \xi_1, \ldots, \xi_n, \ldots \sim N(0, 1),~ \text{независимые}
+    \xi_j \sim N(0, 1),~ \text{независимые}
   .\]
 
 \end{theorem}
@@ -76,9 +80,11 @@
   \textit{Доверительной полосой} называют часть плоскости, в которую с
   надежностью $\gamma$ попадает функция распределения генеральной совокупности:
   \[
+%:: NOTE скобки не соответствуют размеру текста. используй \parens*{...}
+%:: NOTE max, min -- функции
   \begin{cases}
-    F^{-}_n(t) = max(0, F_n(t) - \frac{u_{\gamma}}{\sqrt{n}})\\
-    F^{+}_n(t) = min(1, F_n(t) + \frac{u_{\gamma}}{\sqrt{n}})
+    F^{-}_n(t) = \max\parens*{0, F_n(t) - \frac{u_{\gamma}}{\sqrt{n}}} \\
+    F^{+}_n(t) = \min\parens*{1, F_n(t) + \frac{u_{\gamma}}{\sqrt{n}}}
   \end{cases}
   ,~ \text{где}~ \mathcal{K}(u_{\gamma}) = \gamma
   .\]
@@ -92,17 +98,20 @@
     \xlongrightarrow[n \to \infty]{} \gamma
   .\]
 \end{proposition}
+%:: NOTE тут тоже скобки (я тут не заменил)
 \begin{proof}
   $0 \leqslant F_x(t) \leqslant 1$ всегда, тогда:
   \begin{align*}
-    P_x(F^{-}_n(t) \leqslant F_x(t) \leqslant F^{+}_n(t)) = \\
+    P_x(F^{-}_n(t) \leqslant F_x(t) \leqslant F^{+}_n(t)) 
     &=P_x(F_n(t) - \frac{u_{\gamma}}{\sqrt{n}} \leqslant F_x(t) \leqslant
     F_n(t) + \frac{u_{\gamma}}{\sqrt{n}}) \overset{\forall t}{\underset{}{=}} \\
     &\overset{\forall t}{\underset{}{=}}
     P_x(\sqrt{n} |F_x(t) - F_n(t)| \leqslant u_{\gamma})
     \overset{\forall t}{\underset{}{=}} \\
+%:: NOTE куда делся \sqrt{n}?
     &\overset{\forall t}{\underset{}{=}}
     P_x(\sup_{t} |F_x(t) - F_n(t)| \leqslant u_{\gamma})
     \xlongrightarrow[]{\text{th. Колмогорова}} \mathcal{K}(u_{\gamma}) = \gamma
   .\end{align*}
 \end{proof}
+
