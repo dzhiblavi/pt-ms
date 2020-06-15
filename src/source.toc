@@ -1,0 +1,51 @@
+\babel@toc {russian}{}
+\contentsline {section}{\numberline {1}Постановка задач математической статистики}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Задачи теории вероятностей}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Задачи математической статистики}{3}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Частота как оценка вероятности события и её свойства. Построение доверительного интервала для вероятности события на базе асимптотической нормальности частоты.}{5}{section.2}%
+\contentsline {section}{\numberline {3}Постановка выборочной статистической модели. Точечная оценка параметра и характеристики.}{7}{section.3}%
+\contentsline {section}{\numberline {4}Функции потерь и функции риска, состоятельность оценки характеристики, достаточное условие для состоятельности оценки.}{8}{section.4}%
+\contentsline {section}{\numberline {5}Вид квадратичного риска в случае одномерной характеристики.}{10}{section.5}%
+\contentsline {section}{\numberline {6}Постановка задачи доверительного оценивания, доверительный интервал.}{11}{section.6}%
+\contentsline {section}{\numberline {7}Определение несмещенности и асимптотической нормальности оценки характеристики. Построение доверительного интервала для характеристики на базе асимптотической нормальности ее оценки.}{12}{section.7}%
+\contentsline {section}{\numberline {8}Постановка задачи проверки гипотез}{13}{section.8}%
+\contentsline {section}{\numberline {9}Ошибки первого и второго рода и их вероятности как критерий качества критерия (теста) проверки гипотез. Подход Неймана-Пирсона.}{14}{section.9}%
+\contentsline {paragraph}{Подход Неймана-Пирсона.}{14}{section*.2}%
+\contentsline {section}{\numberline {10}Асимптотический вариант задачи проверки гипотез. Состоятельный тест асимптотического уровня значимости $\alpha $.}{15}{section.10}%
+\contentsline {section}{\numberline {11}Эмпирическая функция распределения (ЭФР). Построение, свойства ЭФР при фиксированном значении аргумента (использовать свойства частоты).}{16}{section.11}%
+\contentsline {paragraph}{Свойства ЭФР:}{16}{section*.3}%
+\contentsline {section}{\numberline {12}Свойства ЭФР в целом. Расстояние Колмогорова, Смирнова. Теоремы Гливенко-Кантелли, Колмогорова, Мизеса-Смирнова. Построение доверительной полосы для функции распределения.}{17}{section.12}%
+\contentsline {section}{\numberline {13}Критерии согласия Колмогорова и Мизеса-Смирнова.}{19}{section.13}%
+\contentsline {subsection}{\numberline {13.1}Критерий согласия Колмогорова}{19}{subsection.13.1}%
+\contentsline {subsection}{\numberline {13.2}Критерий Мизеса-Смирнова}{19}{subsection.13.2}%
+\contentsline {subsection}{\numberline {13.3}Прикладной алгоритм}{20}{subsection.13.3}%
+\contentsline {section}{\numberline {14}Выборочный метод построения оценок одномерных характеристик. Асимптотическая нормальность оценки. Построение асимптотического доверительного интервала на базе асимптотической нормальности.}{21}{section.14}%
+\contentsline {subsection}{\numberline {14.1}Описание выборочного метода}{21}{subsection.14.1}%
+\contentsline {subsection}{\numberline {14.2}Асимптотическая нормальность, свойства асимптотической нормальности оценок}{21}{subsection.14.2}%
+\contentsline {section}{\numberline {15}Основные выборочные оценки и их свойства. Выборочное математическое ожидание. Выборочная дисперсия. Выборочные моменты. Выборочные медиана и квантили. Выборочные оценки ковариации и коэффициента корреляции.}{23}{section.15}%
+\contentsline {subsection}{\numberline {15.1}Выборочное среднее / М.О.}{23}{subsection.15.1}%
+\contentsline {paragraph}{Свойства.}{23}{section*.4}%
+\contentsline {subsection}{\numberline {15.2}Выборочная дисперсия}{24}{subsection.15.2}%
+\contentsline {paragraph}{Свойства.}{24}{section*.5}%
+\contentsline {subsection}{\numberline {15.3}Несмещенная выборочная дисперсия}{24}{subsection.15.3}%
+\contentsline {paragraph}{Свойства.}{24}{section*.6}%
+\contentsline {subsection}{\numberline {15.4}Выборочные моменты}{25}{subsection.15.4}%
+\contentsline {subsubsection}{\numberline {15.4.1}Выборочные начальные моменты}{25}{subsubsection.15.4.1}%
+\contentsline {subsubsection}{\numberline {15.4.2}Выборочные центральные моменты}{25}{subsubsection.15.4.2}%
+\contentsline {subsection}{\numberline {15.5}Выборочная медиана}{25}{subsection.15.5}%
+\contentsline {paragraph}{Свойства.}{26}{section*.7}%
+\contentsline {subsection}{\numberline {15.6}Выборочная ковариация и корреляция}{26}{subsection.15.6}%
+\contentsline {subsubsection}{\numberline {15.6.1}Выборочная ковариация}{26}{subsubsection.15.6.1}%
+\contentsline {paragraph}{Свойства.}{26}{section*.8}%
+\contentsline {subsection}{\numberline {15.7}Выборочная корреляция}{27}{subsection.15.7}%
+\contentsline {paragraph}{Свойства.}{27}{section*.9}%
+\contentsline {section}{\numberline {16}Гистограмма как оценка плотности распределения. Статистические свойства гистограммы. Теорема Пирсона. Критерий хи-квадрат для проверки гипотезы о виде распределения генеральной совокупности}{28}{section.16}%
+\contentsline {subsection}{\numberline {16.1}Построение}{28}{subsection.16.1}%
+\contentsline {subsection}{\numberline {16.2}Статиситические свойства гистограммы}{29}{subsection.16.2}%
+\contentsline {subsection}{\numberline {16.3}Критерий хи-квадрат}{30}{subsection.16.3}%
+\contentsline {subsubsection}{\numberline {16.3.1}Дискретная случайная величина}{30}{subsubsection.16.3.1}%
+\contentsline {subsubsection}{\numberline {16.3.2}Критерий хи-квадрат для случайной величины общего вида}{31}{subsubsection.16.3.2}%
+\contentsline {section}{\numberline {17}Метод моментов и его свойства.}{32}{section.17}%
+\contentsline {subsection}{\numberline {17.1}Идея метода подстановки}{32}{subsection.17.1}%
+\contentsline {subsection}{\numberline {17.2}Метод моментов}{32}{subsection.17.2}%
+\contentsline {section}{\numberline {18}Метод максимального правдоподобия и его свойства.}{34}{section.18}%

@@ -57,9 +57,9 @@
 	Соответствующий риск будет вероятностью отклонения:
 	\[
 		R^\delta(\hat{g}, \theta) = E_{\theta}(l(\hat{g}, g(\theta))) =
-	0 \cdot P_\theta(\norm{\hat{g} - g(\theta)} < \delta) +
-	1 \cdot P_\theta(\norm{\hat{g} - g(\theta)} \geqslant \delta) =
-	P_\theta(\norm{\hat{g} - g(\theta)} \geqslant \delta)
+	0 \cdot P_\theta(\norm{\hat{g}, g(\theta)} < \delta) +
+	1 \cdot P_\theta(\norm{\hat{g}, g(\theta)} \geqslant \delta) =
+	P_\theta(\norm{\hat{g}, g(\theta)} \geqslant \delta)
 	.\]
 \end{definition}
 
@@ -68,7 +68,7 @@
 	если 
 	\[
 		\forall \delta > 0~ R^\delta(\hat{g}_n, \theta) =
-	P_{n, \theta}(\norm{\hat{g}_n - g(\theta)} \geqslant \delta)
+	P_{n, \theta}(\norm{\hat{g}_n, g(\theta)} \geqslant \delta)
 	\xrightarrow[n \to +\infty]{} 0
 	.\]
 	Или, что то же самое:
@@ -80,18 +80,18 @@
 \begin{definition}
 	\textit{Квадратичной функцией потерь} называется функция
 	\[
-		l_2(\hat{g}, g(\theta)) = \norm{\hat{g} - g(\theta)}^2
+		l_2(\hat{g}, g(\theta)) = \norm{\hat{g}, g(\theta)}^2
 	.\]
 	Соответствующий ей риск называется \textit{квадратичным}:
 	\[
-		R_2(\hat{g}, \theta) = E_\theta(\norm{\hat{g} - g(\theta)}^2)
+		R_2(\hat{g}, \theta) = E_\theta(\norm{\hat{g}, g(\theta)}^2)
 	.\]
 \end{definition}
 
 \begin{theorem}(Достаточное условие для состоятельности оценки)
 
-	$R_2(\hat{g}_n, \theta) \xrightarrow[n \to +\infty]{} 0 \Lra$ оценка
-	состоятельна.
+	В случае одномерной оценки $R_2(\hat{g}_n, \theta) 
+    \xrightarrow[n \to +\infty]{} 0 \Lra$ оценка состоятельна.
 \end{theorem}
 \begin{proof}
 	\begin{align*}

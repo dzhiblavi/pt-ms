@@ -8,22 +8,23 @@
 	функции $g(\theta)$ называют численную оценку этой величины.
 \end{definition}
 
-\textit{Пусть $\hat{g}_n$ является некоторой точечной оценкой $g = g(\theta)$.}
+\textit{Пусть $\hat{g}$ является некоторой точечной оценкой $g = g(\theta)$.}
 
 \begin{definition}
-	$\hat{g}_n$ называется \textit{несмещенной}, если $E(\hat{g}_n) = g(\theta).$
+	$\hat{g}$ называется \textit{несмещенной}, если $E(\hat{g}) = g(\theta).$
 \end{definition}
 
 \begin{definition}
-	$\hat{g}_n$ называется \textit{состоятельной}, если
-	$\hat{g}_n \xLongrightarrow[P]{} g(\theta)$ при $n \to \infty$.
+	При асимптотическом подходе оценка $\hat{g}$ называется 
+    \textit{состоятельной}, если $\hat{g} \xLongrightarrow[P]{} g(\theta)$ при 
+    $n \to \infty$.
 \end{definition}
 
 \begin{definition}
 	$\hat{g}_n$ называется \textit{асимптотически нормальной}, если
 	\[
 		\frac{\sqrt{n}(\hat{g}_n - g(\theta))}{\sigma(g(\theta))}
-	\xrightarrow[n \to \infty]{} N(0, 1)
+        \xrightarrow[]{P_{n, \theta}} N(0, 1)
 	.\]
 \end{definition}
 
