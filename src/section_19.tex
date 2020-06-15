@@ -49,9 +49,13 @@
 \end{definition}
 
 \begin{definition}
-	Оценка $\hat{g}_{n}$ называется \textit{локально асимптотически минимаксной} в точке $\theta_{0} \in \Theta$, если для достаточно малых $\varepsilon > 0$:
+	Оценка $\hat{g}_{n}$ называется \textit{локально асимптотически минимаксной} 
+    в точке $\theta_{0} \in \Theta$, если для достаточно малых $\e > 0$:
 	\[
-		\lim_{n \to +\infty}\parens*{\frac{\sup_{\|\theta - \theta_0\| \leqslant \varepsilon} R(\hat{g}_n, \theta)}{\sup_{\|\theta - \theta_0\| \leqslant \varepsilon} R(\tilde{g}_n, \theta)}} \leqslant 1
+        \lim_{n \to +\infty}{\parens*{\frac{\sup_{\abs{\theta - \theta_0} 
+                \leqslant \varepsilon}{R(\hat{g}_n, \theta)}}
+                {\sup_{\abs{\theta - \theta_0} \leqslant \varepsilon}
+        {R(\tilde{g}_n, \theta)}}}} \leqslant 1
 	\]
 	для любой оценки $\tilde{g}$.
 \end{definition}
@@ -65,7 +69,7 @@ TODO
 
 \begin{theorem}(Неравенство Рао-Крамера)
 
-	Для любого $\theta \in \Theta \subset R^{1}$
+	Для любого $\theta \in \Theta \subset \R$
 	\[
 		D_{\theta}(\hat{\theta}) \geqslant \frac{1}{I(\theta)}
 	.\]
@@ -75,23 +79,23 @@ TODO
         \begin{itemize}
 		\item Будем считать, что наблюдения $X$ имеют непрерывное распределение. Запишем условие несмещенности:
 			\[
-				\int\limits_{\mathbb{X}} \hat{\theta}(x)f(x,\theta) dx
+				\int\limits_{\mathbb{X}} \hat{\theta}(x)f(x,\theta) \dd x = \theta
 			\]
 		\item Продифференцируем это равенство:
 			\[
-				\int\limits_{\mathbb{X}} \hat{\theta}(x)l^{'}(\theta,x)f(x,\theta) dx = 1
+				\int\limits_{\mathbb{X}} \hat{\theta}(x)l^{'}(\theta,x)f(x,\theta) \dd x = 1
 			\]
 		\item Умножая 19.2.3 на $\theta$ и вычитая из п.2:
 			\[
-				\int\limits_{\mathbb{X}} (\hat{\theta}(x) - \theta)l^{'}(\theta,x)f(x,\theta) dx = 1
+				\int\limits_{\mathbb{X}} (\hat{\theta}(x) - \theta)l^{'}(\theta,x)f(x,\theta) \dd x = 1
 			\]
 		\item Рассмотрим функции:
 			\[
-				g_1(x) = (\hat{\theta}(x) - \theta)(f(x, \theta))^{\frac{1}{2}}, g_2(x) = l^{'}(x, \theta)(f(x, \theta))^{\frac{1}{2}}
+				g_1(x) = (\hat{\theta}(x) - \theta)(f(x, \theta))^{\frac{1}{2}},~ g_2(x) = l^{'}(x, \theta)(f(x, \theta))^{\frac{1}{2}}
 			\]
 		\item Возведем в квадрат п.3 и воспользуемся интегральным неравенством Коши-Буняковского для функций п.4:
 			\[
-				1 \leqslant \int\limits_{\mathbb{X}} (\hat{\theta}(x) - \theta)^2f(x,\theta) dx \int\limits_{\mathbb{X}} (l^{'}(\theta,x))^2f(x,\theta) dx = D_{\theta}(\hat{\theta})I(\theta)
+				1 \leqslant \int\limits_{\mathbb{X}} (\hat{\theta}(x) - \theta)^2f(x,\theta) \dd x \int\limits_{\mathbb{X}} (l^{'}(\theta,x))^2f(x,\theta) \dd x = D_{\theta}(\hat{\theta})I(\theta)
 			.\]
 	\end{itemize}
 \end{proof}

@@ -6,17 +6,21 @@
 Имеется выборка $X_1, ..., X_n$ из нормального распределения со средним $0$ и дисперсией $\sigma^2$, $\sigma > 0$. Построим наиболее мощный критерий размера $\varepsilon$ для проверки гипотезы $H_1 = {\sigma = \sigma_1}$ против альтернативы $H_2 = {\sigma = \sigma_2}$, где $\sigma_1 < \sigma_2$.
 
 %:: NOTE линк на коп
-Отношение правдоподобия имеет абсолютно непрерывное распределение при любой из гипотез, поэтому критерий отношения правдоподобия будет нерандомизированным. Его критическая область $\delta(X) = H_2$ определяется неравенством:
+Отношение правдоподобия имеет абсолютно непрерывное распределение при любой из 
+гипотез, поэтому критерий отношения правдоподобия будет нерандомизированным. 
+Его критическая область $\delta(X) = H_2$ определяется неравенством:
+\[
+    T(X) = \frac{\sigma^n_1}{\sigma^n_2} \exp{\left(\frac{1}{2}\left(\frac{1}
+    {\sigma^2_1} - \frac{1}{\sigma^2_2}\right)\sum_{i = 1}^{n}{X^2_i}\right)}
+,\]
+что эквивалентно неравенству $\overline{X^2} \geqslant c_1$. Найдем $c_1$, при 
+котором размер критерия равен $\varepsilon$:
 
 \[
-	T(X) = \frac{\sigma^n_1}{\sigma^n_2} exp \left{\frac{1}{2}\left(\frac{1}{\sigma^2_1} - \frac{1}{\sigma^2_2}\right)\sum\limits_{i = 1}^{n} X^2_i\right}
-.\]
-
-что эквивалентно неравенству $\overline{X^2} \geqslant c_1$. Найдем $c_1$, при котором размер критерия равен $\varepsilon$:
-
-\[
-	\alpha_{1}(\delta) = P_{H_1}(\overline{X^2} \geqslant c_1) = P_{H_1}(\frac{n\overline{X^2}}{\sigma^2_1} \geqslant \frac{nc_1}{\sigma^2_1}) = 1 - H_n(\frac{nc_1}{\sigma^2_1}) = \varepsilon.
-
+	\alpha_{1}(\delta) = P_{H_1}(\overline{X^2} \geqslant c_1) = 
+    P_{H_1}\parens*{\frac{n\overline{X^2}}{\sigma^2_1} \geqslant 
+    \frac{nc_1}{\sigma^2_1}} = 1 - H_n\parens*{\frac{nc_1}{\sigma^2_1}} = 
+    \varepsilon
 .\]
 
 Отсюда $n \frac{c_1}{\sigma^2_{1}} = h_{1-\varepsilon}$ -- квантиль $\chi^2$-распределения с $n$ степенями свободы уровня $1 - \varepsilon$. Тогда $c_1 = \frac{h_{1 - \varepsilon}\sigma^2_{1}}{n}$ и НМК размера $\varepsilon$ имеет вид $\delta(X) = H_2$ при:
