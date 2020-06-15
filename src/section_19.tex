@@ -2,30 +2,29 @@
 %:: NOTE a:koveshnikov
 %:: NOTE check
 
-%:: NOTE \chi -> \cX
 Рассматриваются задачи оценки конечномерного параметра распределения $P_{\theta}$, $\theta \in \Theta \subset R^m$, а также характеристик (функций) $g(\theta)$ по наблюдениям $X \in \cX$.
 
 \subsection{О сравнении качества оценок}
 Сравниваем различные оценки с помощью функции риска. 
 \begin{definition}
-	Оценка $\hat{g}^{1}$ не хуже оценки $\hat{g}^{2}$, если $R(\hat{g}^{1}, \theta) \leq R(\hat{g}^{2}, \theta)$, для всех $\theta \in \Theta$. Обозначение: $\hat{g}^{1} \succeq \hat{g}^{2}$.
+	Оценка $\hat{g}^{1}$ не хуже оценки $\hat{g}^{2}$, если $R(\hat{g}^{1}, \theta) \leqslant R(\hat{g}^{2}, \theta)$, для всех $\theta \in \Theta$. Обозначение: $\hat{g}^{1} \succeq \hat{g}^{2}$.
 \end{definition}
 
 \begin{definition}
 	Пусть $G = \{\,\hat{g}\,\}$ -- некоторый класс оценок. Оценка $\hat{g}^{*}$ называется \textit{эффективной} в классе $G$, если:
 	\[
 %:: NOTE так нельзя!!!
-        \hat{g}^{*} \succeq \hat{g}, \text{ для всех } \hat{g} \in G
-	.\]
+        \hat{g}^{*} \succeq \hat{g}
+	\]
+	для всех $\hat{g} \in G$.
 \end{definition}
 
-В классе \textit{всех} оценок не существует эффективной оценки. Для поиска эффективных оценок нужны ограничения на класс рассматрвиаемых оценок. 
+В классе \textit{всех} оценок не существует эффективной оценки. Для поиска эффективных оценок нужны ограничения на класс рассматриваемых оценок.
 
 Отмеченные трудности вынуждают сравнивать не функции риска различных оценок, а какие-нибудь числовые величины от функций риска, которые характеризуют функцию риска. 
 
 \subsubsection{Минимаксный подход}
 Здесь качество оценки характеризуется максимальным значением риска:
-%:: NOTE max -- \max
 \[
     R_{\max}(\hat{g}) = \sup_{\theta \in \Theta} R(\hat{g}, \theta)
 .\]
@@ -33,8 +32,9 @@
 \begin{definition}
 	Оценка $\hat{g}$ называется \textit{минимаксной}, если:
 	\[
-        R_{\max}(\hat{g}) \leqslant R_{\max}(\tilde{g}) \text{ для любой оценки } \tilde{g}
-	.\]
+        R_{\max}(\hat{g}) \leqslant R_{\max}(\tilde{g})
+	\]
+	для любой оценки $\tilde{g}$.
 \end{definition}
 
 Подход ориентирован на построение оценки с минимальным значением максимального риска.
@@ -43,18 +43,17 @@
 \begin{definition}
 	Оценка $\hat{g}_{n}$ называется \textit{асимптотически минимаксной}, если:
 	\[
-%:: NOTE () -- \parens*{}
 		\lim_{n \to +\infty}\parens*{\frac{R_{\max}(\hat{g}_n)}{R_{\max}(\tilde{g}_n)}} \leqslant 1
-	.\]
+	\]
+	для любой оценки $\tilde{g}$.
 \end{definition}
 
-%:: NOTE todo
-\subsubsection{Асимптотически минимаксные оценки}
 \begin{definition}
-	Оценка $\hat{g}_{n}$ называется \textit{локально асимптотически минимаксной} в точке $\theta_{0} \in \Theta$, если:
+	Оценка $\hat{g}_{n}$ называется \textit{локально асимптотически минимаксной} в точке $\theta_{0} \in \Theta$, если для достаточно малых $\varepsilon > 0$:
 	\[
-		\lim_{n \to +\infty}\parens*{\frac{todo}{todo}} \leqslant 1
-	.\]
+		\lim_{n \to +\infty}\parens*{\frac{\sup_{\|\theta - \theta_0\| \leqslant \varepsilon} R(\hat{g}_n, \theta)}{\sup_{\|\theta - \theta_0\| \leqslant \varepsilon} R(\tilde{g}_n, \theta)}} \leqslant 1
+	\]
+	для любой оценки $\tilde{g}$.
 \end{definition}
 
 %:: NOTE todo
@@ -68,7 +67,6 @@ TODO
 
 	Для любого $\theta \in \Theta \subset R^{1}$
 	\[
-%:: NOTE fraq?!
 		D_{\theta}(\hat{\theta}) \geqslant \frac{1}{I(\theta)}
 	.\]
 \end{theorem}
@@ -83,13 +81,13 @@ TODO
 Неравенство Рао-Крамера дает нижнюю границу для дисперсии и квадратичного риска несмещенных оценок.
 
 \begin{definition}
-	Оценка, на которой достигается нижняя граница Рао-Крамера называется \textit{эффективной}.
+	Оценка, на которой достигается нижняя граница Рао-Крамера, называется \textit{эффективной}.
 \end{definition}
 
 \begin{remark}
 	Неравенство Рао-Крамера справедливо и для смещенных оценок (со смещением $b^{'}_{\theta}(\hat{\theta})$) в форме:
 	\[
-		D_{\theta}(\hat{\theta}) \geqslant \frac{(1 + b^{'}_{theta}(\hat{\theta}))^2}{I(\theta)}
+		D_{\theta}(\hat{\theta}) \geqslant \frac{(1 + b^{'}_{\theta}(\hat{\theta}))^2}{I(\theta)}
 	.\]
 \end{remark}
 
