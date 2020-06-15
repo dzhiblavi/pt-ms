@@ -1,0 +1,53 @@
+\section{Асимптотический вариант задачи проверки гипотез. Состоятельный тест
+асимптотического уровня значимости $\alpha$.}
+%:: NOTE a:dolzhanskii
+%:: NOTE check
+
+При асимптотическом подходе последовательность тестов $\varphi = \varphi_n$
+называют просто тестом и проводят исследование асимптотических (предельных)
+свойств тесто $\varphi = \{\varphi_n\}$ при $n \to \infty$.\\
+
+\begin{definition}
+  Тест $\varphi = \{\varphi_n\}$ имеет \textit{асимптотический уровень
+  значимости $\alpha(\varphi),~ \alpha(\varphi) \in \left[0, 1 \right]$}, если:
+  \[
+    \alpha_n(\varphi_n) =
+    \sup_{\theta \in \Theta_{H_0}} \alpha(\varphi_n, \theta) \to
+    \alpha(\varphi),~ n \to \infty
+  .\]
+\end{definition}
+
+При использовании подхода Неймана-Пирсона в асимптотическом варианте ограничение
+накладывается на асимптотический уровень значимости: $\alpha(\varphi) = \alpha$.
+
+\begin{definition}
+  При асимптотическом подходе тест $\varphi = \{\varphi_n\}$ называется
+  \textit{состоятельным}, если для любого $\theta \in \Theta_{H_1}$:
+  \[
+    \beta(\varphi_n, \theta) \xlongrightarrow[n \to \infty]{} 0
+  .\]
+\end{definition}
+
+%:: NOTE a:dolzhanskii
+%:: NOTE Возможно, это нужно не здесь
+
+\begin{definition}
+  \textit{Мерой близости альтернативы $\theta \in \Theta_{H_1}$ и гипотезы
+  $H_0$} называют следующую величину:
+  \[
+    \rho(\theta, \Theta_{H_0}) = \inf_{\theta_0 \in \Theta_{H_0}}
+    \left\lVert \theta - \theta_0 \right\rVert
+  .\]
+\end{definition}
+
+\begin{definition}
+  Тест $\varphi = \{\varphi_n\}$ называется \textit{$\sqrt{n}$-состоятельным},
+  если:
+  \[
+    \beta(\varphi_n, \theta_n) \xlongrightarrow[n \to \infty]{} 0
+  \]
+  Для такой последовательности $\theta_n \in \Theta_{H_1}$, что:
+  \[
+    \sqrt{n} \rho(\theta_n, \Theta_{H_0}) \to \infty
+  .\]
+\end{definition}
