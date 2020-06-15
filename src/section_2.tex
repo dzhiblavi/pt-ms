@@ -1,12 +1,13 @@
 \section{Частота как оценка вероятности события и её свойства.
     Построение доверительного интервала для вероятности события
 на базе асимптотической нормальности частоты.}
+\label{sec:normfreq}
 %:: NOTE a:dzhiblavi
 %:: NOTE check
 
 \begin{theorem}(Яков, Бернулли)
 
-	Пусть имеется $\xi_i \sim \xi$ -- последовательность одинаково 
+	Пусть имеется $\xi_i \sim \xi$ -- последовательность одинаково
 	распределенных и попарно независимых случайных величин. Пусть
 	\[
 		\overline{\xi}_n = \frac{1}{n} \sum_{i = 1}^n{\xi_n} = \frac{k_n}{n}
@@ -33,7 +34,7 @@
 
 \begin{theorem}(Свойства частоты как оценки $p$)
 
-	Пусть $\xi \sim B(p)$. Тогда 
+	Пусть $\xi \sim B(p)$. Тогда
 	\[
 		\hat{p} = \frac{k_n}{n}
 	\]
@@ -42,7 +43,7 @@
 		E(\hat{p}) = p,
 	\]
 	\[
-		\sqrt{n} \cdot (\hat{p} - p) = Y_n \xrightarrow[]{P_{n, \theta}} Y 
+		\sqrt{n} \cdot (\hat{p} - p) = Y_n \xrightarrow[]{P_{n, \theta}} Y
 	\sim N(0, \Delta^2(p)),~ \Delta^2(p) = p(1 - p)
 	.\]
 \end{theorem}
@@ -67,15 +68,14 @@
 .\]
 Это буквально означает:
 \[
-	P_{n, \theta}(Y_n < t) \to F_{N(0, 1)}(t) 
+	P_{n, \theta}(Y_n < t) \to F_{N(0, 1)}(t)
 .\]
 Раскроем определение $Y_n$, возьмем его по модулю и воспользуемся квантилью:
 \[
-	P_{n, \theta}\parens*{\abs*{\frac{\sqrt{n} 
+	P_{n, \theta}\parens*{\abs*{\frac{\sqrt{n}
     \cdot (\hat{p} - p)}{\sqrt{p(1 - p)}} } < t_\gamma} \to \gamma \Llra
     P_{n, \theta}\parens*{\frac{\sqrt{p(1 - p)}}{\sqrt{n}}t_\gamma + \hat{p}
     > p > -\frac{\sqrt{p(1 - p)}}{\sqrt{n}}t_\gamma + \hat{p}} \to \gamma
 .\]
 Здесь $\gamma = P(|\xi| < t_\gamma),~ \xi \sim N(0, 1)$.
 Построим д
-
