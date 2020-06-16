@@ -1,0 +1,82 @@
+\section{Доверительное оценивание и проверка гипотез на основе оценок
+максимального правдоподобия.}
+%:: NOTE a:dzhiblavi
+%:: NOTE check
+
+\subsection{Доверительное оценивание}
+
+Напомним утверждение, сформулированное ранее.
+
+\begin{theorem}
+    
+    \textit{При достаточно общих условиях} оценка максимального правдоподобия
+    одномерного параметра обладает свойством асимптотической нормальности с 
+    $\Delta^2(\theta) = \frac{1}{I(\theta)}$.
+\end{theorem}
+
+Обладая этой информацией, нетрудно построить доверительный интервал
+на основе оценки $\hat{g}$, полученной методом максимального правдоподобия. 
+Действительно, мы только что сформулировали тот факт, что
+\[
+    \sqrt{n} \cdot (\hat{g} - g(\theta)) = Y_n 
+    \xrightarrow[n \to +\infty]{P_{n, \theta}} Y \sim N(0, \Delta^2(\theta))
+.\]
+Откуда вытекает
+\[
+    P_{n, \theta}(|Y_n / \Delta(\theta)| \leqslant t_\gamma) 
+    \to \gamma 
+.\]
+Здесь $t_\gamma \colon~ P_{N(0, 1)}(|\xi| < t_\gamma) = \gamma,~ \xi 
+\sim N(0, 1)$. Чтобы в явном виде получить доверительный интервал, раскроем 
+определение $Y_n$ и подставим значние $\Delta(\theta)$:
+\begin{align*}
+          &P_{n, \theta}\parens*{\abs*{\sqrt{n} \cdot (\hat{g} - g(\theta)) \cdot 
+          \sqrt{I(\theta)}} \leqslant t_\gamma} \to \gamma \\
+    \Llra &P_{n, \theta}(\hat{g} - \delta \leqslant g(\theta) \leqslant
+    \hat{g} + \delta) \to \gamma,~ \delta = \frac{t_\gamma}{\sqrt{n I(\theta)}}
+.\end{align*}
+
+\subsection{Проверка гипотез}
+Пусть сформулирована гипотеза $H_0 \equiv \theta = \theta_0$ и 
+альтернатива $H_1 \equiv \theta = \theta_1 > \theta_0$ (Такая
+альтернатива называется \textit{правосторонней}). Пусть также
+имеется оценка $\hat{\theta}$, полученная методом максимального правдоподобия.
+Рассмотрим тест:
+\[
+    \psi^*_{n, \a} = \begin{cases}
+        1,~ \sqrt{n I(\theta)} \cdot (\hat{\theta} - \theta_0) \geqslant 
+        c_{1 - \a} \\
+        0,~ \sqrt{n I(\theta)} \cdot (\hat{\theta} - \theta_0) < c_{1 - \a}
+    \end{cases}
+.\]
+Здесь $c_\gamma \colon~ P(\xi < c_\gamma) = \gamma,~ \xi \sim N(0, 1)$.
+
+\begin{theorem}
+    $\psi^*_{n, \a}$ является состоятельным тестом асимптотического уровня 
+    значимости $\a$.
+\end{theorem}
+\begin{proof}
+    \enewline
+    \begin{itemize}
+        \item Вычислим уровень значимости критерия:
+            \[
+                \a(\psi^*_{n, \a}) = P_{n, \theta_0}\parens*{\sqrt{n I(\theta)} 
+                \cdot (\hat{\theta} - \theta_0) \geqslant c_{1 - \a}} = 
+                1 - P_{n, \theta_0}\parens*{\sqrt{n I(\theta)} 
+                \cdot (\hat{\theta} - \theta_0) < c_{1 - \a}} \to \a
+            .\]
+            Последнее верно по свойству асимптотической нормальности оценки.
+        \item Проверим состоятельность теста:
+%:: NOTE самопальное доказательство, проверьте плиз!
+            \begin{align*}
+                \b(\psi^*_{n, \a}) 
+                &= P_{n, \theta_1}\parens*{\sqrt{n I(\theta)} 
+                \cdot (\hat{\theta} - \theta_0) < c_{1 - \a}} \\ 
+                &= P_{n, \theta_1}\parens*{\sqrt{n I(\theta)} \cdot
+                    (\hat{\theta} - \theta_1) < \underbrace{\sqrt{n I(\theta)} 
+                \cdot (\theta_0 - \theta_1)}_{\to -\infty} + c_\gamma}
+                \xrightarrow[n \to +\infty]{} 0
+            .\end{align*}
+    \end{itemize}
+\end{proof}
+

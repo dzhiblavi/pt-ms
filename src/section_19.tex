@@ -1,0 +1,115 @@
+\section{О сравнении качества оценок. Свойства функции правдоподобия (одномерный параметр). Неравенство Рао-Крамера и эффективные оценки.}
+%:: NOTE a:koveshnikov
+%:: NOTE check
+
+Рассматриваются задачи оценки конечномерного параметра распределения $P_{\theta}$, $\theta \in \Theta \subset R^m$, а также характеристик (функций) $g(\theta)$ по наблюдениям $X \in \cX$.
+
+\subsection{О сравнении качества оценок}
+Сравниваем различные оценки с помощью функции риска. 
+\begin{definition}
+	Оценка $\hat{g}^{1}$ не хуже оценки $\hat{g}^{2}$, если $R(\hat{g}^{1}, \theta) \leqslant R(\hat{g}^{2}, \theta)$, для всех $\theta \in \Theta$. Обозначение: $\hat{g}^{1} \succeq \hat{g}^{2}$.
+\end{definition}
+
+\begin{definition}
+	Пусть $G = \{\,\hat{g}\,\}$ -- некоторый класс оценок. Оценка $\hat{g}^{*}$ называется \textit{эффективной} в классе $G$, если:
+	\[
+%:: NOTE так нельзя!!!
+        \hat{g}^{*} \succeq \hat{g}
+	\]
+	для всех $\hat{g} \in G$.
+\end{definition}
+
+В классе \textit{всех} оценок не существует эффективной оценки. Для поиска эффективных оценок нужны ограничения на класс рассматриваемых оценок.
+
+Отмеченные трудности вынуждают сравнивать не функции риска различных оценок, а какие-нибудь числовые величины от функций риска, которые характеризуют функцию риска. 
+
+\subsubsection{Минимаксный подход}
+Здесь качество оценки характеризуется максимальным значением риска:
+\[
+    R_{\max}(\hat{g}) = \sup_{\theta \in \Theta} R(\hat{g}, \theta)
+.\]
+
+\begin{definition}
+	Оценка $\hat{g}$ называется \textit{минимаксной}, если:
+	\[
+        R_{\max}(\hat{g}) \leqslant R_{\max}(\tilde{g})
+	\]
+	для любой оценки $\tilde{g}$.
+\end{definition}
+
+Подход ориентирован на построение оценки с минимальным значением максимального риска.
+
+\subsubsection{Асимптотически минимаксные оценки}
+\begin{definition}
+	Оценка $\hat{g}_{n}$ называется \textit{асимптотически минимаксной}, если:
+	\[
+		\lim_{n \to +\infty}\parens*{\frac{R_{\max}(\hat{g}_n)}{R_{\max}(\tilde{g}_n)}} \leqslant 1
+	\]
+	для любой оценки $\tilde{g}$.
+\end{definition}
+
+\begin{definition}
+	Оценка $\hat{g}_{n}$ называется \textit{локально асимптотически минимаксной} 
+    в точке $\theta_{0} \in \Theta$, если для достаточно малых $\e > 0$:
+	\[
+        \lim_{n \to +\infty}{\parens*{\frac{\sup_{\abs{\theta - \theta_0} 
+                \leqslant \varepsilon}{R(\hat{g}_n, \theta)}}
+                {\sup_{\abs{\theta - \theta_0} \leqslant \varepsilon}
+        {R(\tilde{g}_n, \theta)}}}} \leqslant 1
+	\]
+	для любой оценки $\tilde{g}$.
+\end{definition}
+
+%:: NOTE todo
+\subsection{Свойства функции правдоподобия (одномерный параметр)}
+TODO
+
+\subsection{Неравенство Рао-Крамера и эффективные оценки}
+Пусть $\hat{\theta} = \hat{\theta}(X)$ -- несмещенная оценка одномерного параметра, выполнены условия регулярности и $I(\theta) > 0$ для всех $\theta \in \Theta$.
+
+\begin{theorem}(Неравенство Рао-Крамера)
+
+	Для любого $\theta \in \Theta \subset \R$
+	\[
+		D_{\theta}(\hat{\theta}) \geqslant \frac{1}{I(\theta)}
+	.\]
+\end{theorem}
+\begin{proof}
+	\enewline
+        \begin{itemize}
+		\item Будем считать, что наблюдения $X$ имеют непрерывное распределение. Запишем условие несмещенности:
+			\[
+				\int\limits_{\mathbb{X}} \hat{\theta}(x)f(x,\theta) \dd x = \theta
+			\]
+		\item Продифференцируем это равенство:
+			\[
+				\int\limits_{\mathbb{X}} \hat{\theta}(x)l^{'}(\theta,x)f(x,\theta) \dd x = 1
+			\]
+		\item Умножая 19.2.3 на $\theta$ и вычитая из п.2:
+			\[
+				\int\limits_{\mathbb{X}} (\hat{\theta}(x) - \theta)l^{'}(\theta,x)f(x,\theta) \dd x = 1
+			\]
+		\item Рассмотрим функции:
+			\[
+				g_1(x) = (\hat{\theta}(x) - \theta)(f(x, \theta))^{\frac{1}{2}},~ g_2(x) = l^{'}(x, \theta)(f(x, \theta))^{\frac{1}{2}}
+			\]
+		\item Возведем в квадрат п.3 и воспользуемся интегральным неравенством Коши-Буняковского для функций п.4:
+			\[
+				1 \leqslant \int\limits_{\mathbb{X}} (\hat{\theta}(x) - \theta)^2f(x,\theta) \dd x \int\limits_{\mathbb{X}} (l^{'}(\theta,x))^2f(x,\theta) \dd x = D_{\theta}(\hat{\theta})I(\theta)
+			.\]
+	\end{itemize}
+\end{proof}
+
+Неравенство Рао-Крамера дает нижнюю границу для дисперсии и квадратичного риска несмещенных оценок.
+
+\begin{definition}
+	Оценка, на которой достигается нижняя граница Рао-Крамера, называется \textit{эффективной}.
+\end{definition}
+
+\begin{remark}
+	Неравенство Рао-Крамера справедливо и для смещенных оценок (со смещением $b^{'}_{\theta}(\hat{\theta})$) в форме:
+	\[
+		D_{\theta}(\hat{\theta}) \geqslant \frac{(1 + b^{'}_{\theta}(\hat{\theta}))^2}{I(\theta)}
+	.\]
+\end{remark}
+

@@ -1,8 +1,6 @@
 \section{Свойства ЭФР в целом. Расстояние Колмогорова, Смирнова. Теоремы
 Гливенко-Кантелли, Колмогорова, Мизеса-Смирнова. Построение доверительной
 полосы для функции распределения.}
-%:: NOTE a:dolzhanskii
-%:: NOTE check
 
 \textit{Со свойствами ЭФР можно ознакомиться в предыдущем разделе.}
 
@@ -15,10 +13,8 @@
 
 \begin{definition}
   \textit{Расстояние Смирнова}:
-%:: NOTE d в интеграле ставится не так (см. исправление)
   \[
     \rho^{2}_{2} (F_n, F_x) = \int\limits_{\mathbb{R}}(F_n(t) - F_x(t))^2
-%:: NOTE replaced dF_x(t)
     \dd F_x(t)
   .\]
 \end{definition}
@@ -26,13 +22,12 @@
 \begin{theorem}(Гливенко-Кантелли)
 
   Пусть $\cF$ -- множество функций распределения.
-  Тогда $\forall F_x(t) \in \cF$ верно:
+  Тогда $\forall F_x(t) \in \cF$ c вероятностью 1 справедливо предельное
+  неравенство:
   \[
-    \rho_{\infty} (F_n, F_x) \xlongrightarrow[n \to \infty]{p=1} 0 \Rightarrow
-    \rho_{\infty} (F_n, F_x) \xlongrightarrow[p]{} 0
+    \rho_{\infty} (F_n, F_x) \xlongrightarrow[n \to \infty]{} 0
   .\]
-%:: NOTE эта формулировка не соответствует интернетной/positinov
-%:: NOTE то же верно и для \rho_2, см. конспект
+  Так как $\rho_2 \leqslant \rho_{\infty}$, то же верно для $\rho_2$.
 
 \end{theorem}
 
@@ -80,8 +75,6 @@
   \textit{Доверительной полосой} называют часть плоскости, в которую с
   надежностью $\gamma$ попадает функция распределения генеральной совокупности:
   \[
-%:: NOTE скобки не соответствуют размеру текста. используй \parens*{...}
-%:: NOTE max, min -- функции
   \begin{cases}
     F^{-}_n(t) = \max\parens*{0, F_n(t) - \frac{u_{\gamma}}{\sqrt{n}}} \\
     F^{+}_n(t) = \min\parens*{1, F_n(t) + \frac{u_{\gamma}}{\sqrt{n}}}
@@ -98,20 +91,18 @@
     \xlongrightarrow[n \to \infty]{} \gamma
   .\]
 \end{proposition}
-%:: NOTE тут тоже скобки (я тут не заменил)
 \begin{proof}
   $0 \leqslant F_x(t) \leqslant 1$ всегда, тогда:
   \begin{align*}
-    P_x(F^{-}_n(t) \leqslant F_x(t) \leqslant F^{+}_n(t)) 
-    &=P_x(F_n(t) - \frac{u_{\gamma}}{\sqrt{n}} \leqslant F_x(t) \leqslant
-    F_n(t) + \frac{u_{\gamma}}{\sqrt{n}}) \overset{\forall t}{\underset{}{=}} \\
+    P_x\parens*{F^{-}_n(t) \leqslant F_x(t) \leqslant F^{+}_n(t)}
+    &=P_x\parens*{F_n(t) - \frac{u_{\gamma}}{\sqrt{n}} \leqslant F_x(t)
+    \leqslant F_n(t) + \frac{u_{\gamma}}{\sqrt{n}}} \overset{\forall t}
+    {\underset{}{=}} \\
     &\overset{\forall t}{\underset{}{=}}
-    P_x(\sqrt{n} |F_x(t) - F_n(t)| \leqslant u_{\gamma})
+    P_x\parens*{\sqrt{n} |F_x(t) - F_n(t)| \leqslant u_{\gamma}}
     \overset{\forall t}{\underset{}{=}} \\
-%:: NOTE куда делся \sqrt{n}?
     &\overset{\forall t}{\underset{}{=}}
-    P_x(\sup_{t} |F_x(t) - F_n(t)| \leqslant u_{\gamma})
+    P_x\parens*{\sqrt{n} \sup_{t} |F_x(t) - F_n(t)| \leqslant u_{\gamma}}
     \xlongrightarrow[]{\text{th. Колмогорова}} \mathcal{K}(u_{\gamma}) = \gamma
   .\end{align*}
 \end{proof}
-
