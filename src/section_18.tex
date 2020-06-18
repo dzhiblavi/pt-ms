@@ -34,7 +34,7 @@
 \begin{remark}
     При фиксированном $X \in \cX$ функции правдоподобия -- просто вещественные
     функции $\theta$. Если же считать $X$ случайной величиной, то
-    и функции правдоподобия становятся случайными величинами. 
+    и функции правдоподобия становятся случайными величинами.
 \end{remark}
 
 \begin{remark}
@@ -53,7 +53,7 @@
 \end{definition}
 
 \begin{definition}
-    В случае, когда логарифмическая функция правдоподобия непрерывно 
+    В случае, когда логарифмическая функция правдоподобия непрерывно
     дифференцируема, система уравнений
     \[
         \pderv{l(\theta, X)}{\theta_j} = 0
@@ -82,22 +82,24 @@
 \end{definition}
 
 \begin{theorem}(Свойства оценки максимального правдоподобия)
-    
+
     Пусть справедливы условия:
     \begin{itemize}
-        \item $\theta \in \Theta = \langle a, b \rangle \subseteq \R$, 
+        \item $\theta \in \Theta = \langle a, b \rangle \subseteq \R$,
             то есть изучаемый параметр одномерный.
         \item $\cX = \R$.
         \item Почти везде существуют частные производные логарифмической
             функции правдоподобия порядка $k \leqslant 3$.
         \item Выполнены неравенства
             \[
-                \abs*{\hderv{k}{l(\theta, X)}{\theta^k}} \leqslant G_k(x),~ 1 
-                \leqslant k \leqslant 3 
+                \abs*{\hderv{k}{l(\theta, X)}{\theta^k}} \leqslant G_k(x),~ 1
+                \leqslant k \leqslant 3
             .\]
-            Причем $G_k$ суммируемы и 
+            %:: NOTE a:zagretdinov
+            %:: NOTE а тут реально именно G_3?
+            Причем $G_k$ суммируемы и
             \[
-                \sup_{\theta \in \Theta}{\intl_\R{G_3(x) f(x, \theta) \dd x}} 
+                \sup_{\theta \in \Theta}{\intl_\R{G_3(x) f(x, \theta) \dd x}}
                 < +\infty
             .\]
         \item $\forall \theta > 0~ \exists I(\theta) > 0$.
@@ -106,10 +108,9 @@
     \begin{itemize}
         \item Состоятельность.
         \item $\sqrt{n}$-несмещенность.
-        \item Асимптотическая нормальность с $\displaystyle \Delta^2(\theta) = 
+        \item Асимптотическая нормальность с $\displaystyle \Delta^2(\theta) =
             \frac{1}{I(\theta)}$.
     \end{itemize}
 \end{theorem}
 
 %:: NOTE примеры.
-

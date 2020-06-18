@@ -9,7 +9,7 @@
 Пусть $\a \in (0, 1)$, $\a$ (мало) - допустимый уровень значимости критерия
 Рассмотрим множесто критериев:
 \[
-    \Phi_{\a} = \{ \psi : &\a(\psi, \theta_0) \leqslant \a \}\\
+    \Phi_{\a} = \{ \psi : \a(\psi, \theta_0) \leqslant \a \}\\
 ,\]
 
 %:: NOTE check!
@@ -42,15 +42,17 @@ $H_0 : \theta = \theta_0;~H_1 : \theta \in \Theta_1$ \\
 \textit{Определение} $\psi_{\a}^{*}$ - РНМК, если
 \begin{enumerate}
   \item $\psi_{\a}^{*} \in \Phi_{\a}$
-  \item $\g(\psi_{\a}^{*}, \theta_1) \geqslant \g(\psi, \theta_j)~\forall \theta_1 \in \Theta_1$ и $\psi \in \Phi_{\a}$
+  \item $\g(\psi_{\a}^{*}, \theta_1) \geqslant \g(\psi, \theta_1)~\forall \theta_1 \in \Theta_1$ и $\psi \in \Phi_{\a}$
 \end{enumerate}
 
 Асимптотический подход: \\
 \[
   \Phi_{\a}^{(A)} = \{ \psi_{n, \a} : \a(\psi_{n, \a}, \theta) \leqslant \a + \delta_{n, 0},~\delta_{n, 0} \xrightarrow[n \to \infty]{} 0 \}
 \]
-\textit{Определение} $\psi_{\n, \a}^{*}$ - АРМНК, если
+\textit{Определение} $\psi_{n, \a}^{*}$ - АРМНК, если
 \begin{enumerate}
-  \item $\psi_{\n, \a}^{*} \in \Phi_{\a}^{(A)}$
-  \item $\g(\psi_{\n, \a}^{*}, \theta_1) \geqslant \g(\psi_n, \theta_1) + \delta_{n, 1}~\forall\{\psi_n\} \in \Phi_{\a}^{(A)},~\theta_1 \in \Theta_1,~ \delta_{n, 1} \xrightarrow[]{} 0$
+  \item $\psi_{n, \a}^{*} \in \Phi_{\a}^{(A)}$
+  \item $\g(\psi_{n, \a}^{*}, \theta_1) \geqslant \g(\psi_n, \theta_1) + \delta_{n, 1}~\forall\{\psi_n\} \in \Phi_{\a}^{(A)},~\theta_1 \in \Theta_1,~
+ % NOTE  n \to \infty?
+ \delta_{n, 1} \xrightarrow[n \to \infty]{} 0$
 \end{enumerate}
