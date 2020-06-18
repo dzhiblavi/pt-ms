@@ -1,0 +1,86 @@
+\section{Простейшие случайные процессы. Общие определения. Примеры. Моменты.} 
+
+\begin{definition}
+    \textit{Случайным процессом} называется семейство случайных величин,
+    заданных на одном вероятностном пространстве, параметризованное $t \in T$:
+    \[
+        \cP = \{\, \xi_t(\omega) \mid t \in T \,\}
+    .\]
+\end{definition}
+
+\begin{example}
+    \enewline
+    \begin{itemize}
+        \item Последовательность независимых случайных величин есть случайный
+            процесс с $T = \bN$. Процессы, в которых $T \subseteq \bZ$, 
+            называются \textit{дискретными}.
+        \item Эмпирическая функция распределения -- случайный процесс с $T = \R$.
+        \item Случайная величина -- частный случай случайного процесса с 
+            $T = \{\,1\,\}$.
+    \end{itemize}
+\end{example}
+
+\begin{definition}
+    При заданном $\omega_0 \in \Omega$ \textit{траекторией} называется
+    функция
+    \[
+        \xi(t) = \xi_t(\omega_0)
+    .\]
+\end{definition}
+
+\begin{definition}
+    При заданном $t_0 \in T$ \textit{сечением} называется случайная величина
+    \[
+        \xi(\omega) = \xi_{t_0}(\omega)
+    .\]
+\end{definition}
+
+%:: NOTE не распарсил часть конспекта про восстановление конечномерных распределений
+
+\begin{example}
+    \enewline
+    \begin{itemize}
+        \item Пусть $X \sim U(-1, 1)$, тогда рассмотрим процесс
+            \[
+                Y(t, \omega) = X(\omega) e^{-t}
+            .\]
+            В ситуации, когда случайная величина входит в качесте параметра,
+            процесс называется \textit{простейшим}, или \textit{элементарным}.
+            Траектории устроены следующим образом:
+            \[
+                \xi(t) = a e^{-t},~ a = X(\omega_0)
+            .\]
+            Сечение выглядят так:
+            \[
+                \xi(\omega) = X(\omega) a,~ a = e^{-t_0} 
+            .\]
+        \item Пусть $X \sim N(a, \sigma^2)$, $Y(t, \omega) = X(\omega) e^{-t}$.
+            Найдем моменты сечений:
+            \begin{itemize}
+                \item $E_Y(t) = E(X e^{-t}) = e^{-t} \cdot a$.
+                \item $D_Y(t) = D(X e^{-t}) = e^{-2t} \cdot \sigma^2$.
+                \item $\mathring{Y}(t) = Y(t) - E_Y(t) = (X - a) e^{-t} = 
+                    \mathring{X} e^{-t}$.
+                \item $K_Y(t, t') = E(\mathring{Y}(t) \cdot \mathring{Y}(t'))
+                    = e^{-t - t'} \cdot E(\mathring{X}^2) = e^{-t -t'} 
+                    \cdot \sigma^2$. Эта функция называется
+                    \textit{корреляционной функцией случайного процесса $Y(t)$}.
+                \item $r_Y(t, t') = \frac{\sigma^2 e^{-t-t'}}{\sigma_Y(t) \cdot 
+                        \sigma_Y(t')} = \frac{\sigma^2 e^{-t-t'}}{\sigma e^{-t} 
+                    \sigma e^{-t'}} = 1$. В данном случае получается, что
+                    зависимость между сечениями имеет линейный вид.
+            \end{itemize}
+            Найдем распределение сечения. $Y(t_0, \omega) = X e^{-t_0}$ -- 
+            нормальная случайная величина:
+            \[
+                Y(t_0, \omega) \sim N(a e^{-t_0}, \sigma^2 e^{-2 t_0})
+            .\]
+            С соответствующим распределением:
+            \[
+                f_{Y, t_0}(y) = \frac{1}{\sqrt{2 \pi} \sigma e^{-t_0}} 
+                \parens*{\exp{-\frac{1}{2} \parens*{\frac{y - a e^{-t_0}}
+                {\sigma e^{-t_0}}}^2}}
+            .\]
+    \end{itemize}
+\end{example}
+
