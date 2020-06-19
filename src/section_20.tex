@@ -4,16 +4,14 @@
 
 Проверка простой гипотезы $H_0 : \theta = \theta_0$ против простой альтернативы $H_1 : \theta = \theta_1$ по независимой выборке $X_1, ..., X_n$ из генеральной совокупности $X$.
 
-%:: NOTE check!
 \subsection{Подход Неймана-Пирсона}
-Пусть $\a \in (0, 1)$, $\a$ (мало) - допустимый уровень значимости критерия. Рассмотрим множесто критериев:
+Пусть $\a \in (0, 1)$, $\a$ мало - допустимый уровень значимости критерия. Рассмотрим множество критериев:
 \[
   \Phi_{\a} = \{ \psi : \a(\psi, \theta_0) \leqslant \a \}\\
 .\]
 
-%:: NOTE check!
 \begin{definition}
-  $\psi_{\a}^{*}$ называется наиболее мощным критерием (НМК) уровня значимости $\a$, если:
+  $\psi_{\a}^{*}$ называется \textit{наиболее мощным критерием (НМК)} уровня значимости $\a$, если:
   \begin{enumerate}
     \item $\psi_{\a}^{*} \in \Phi_{\a}$
     \item $\g(\psi_{\a}^{*}, \theta_1) \geqslant \g(\psi, \theta_1)~\forall \psi \in \Phi_{\a}$,
@@ -23,9 +21,8 @@
 
 \subsection{Лемма Неймана-Пирсона}
 
-%:: NOTE change "<"
 Пусть $L(x) = \frac{f_x(x, \theta_1)}{f_x(x, \theta_0)}$ - отклонение правдоподобия ($f_x(x, \theta_1)$ - плотность или вероятность соответствующих значений).
-$\a \in (0, 1)$, $\a$ (мало), фиксированно; обозначим $\g = 1 - \a$ и $\exists T_{\g}: P_{\theta_0}(L(x) < T_{\g}) = \g$ (функция распределения статистики $L(x)$), тогда НМК имеет вид:
+$\a \in (0, 1)$, $\a$ мало, фиксированно; обозначим $\g = 1 - \a$ и $\exists T_{\g}: P_{\theta_0}(L(x) < T_{\g}) = \g$ (функция распределения статистики $L(x)$), тогда НМК имеет вид:
 \[
   \psi_{\a}^{*} =
   \begin{cases}
@@ -35,30 +32,27 @@ $\a \in (0, 1)$, $\a$ (мало), фиксированно; обозначим $
 ,\] 
 при этом $\a(\psi_{\a}^{*}, \theta_0) = P_{\theta_0}(L(x) \geqslant T_{\g}) = 1 - P_{\theta_0}(L(x) < T_{\g}) = 1 - \g = \a$.
 
-%:: NOTE check
 $P_{\theta_0}(L(x) \geqslant T_{\g})$ - вероятность отвергнуть $H_0$, когда она верна, то есть мы принимаем $H_0$, если $f_x(x, \theta_0) > \frac{1}{T_{\g}}f_x(x, \theta_1)$
 
 \subsection{Равномерно наиболее мощные тесты}
 
 $H_0 : \theta = \theta_0;~H_1 : \theta \in \Theta_1$
 \begin{definition}
-  $\psi_{\a}^{*}$ - РНМК, если:
+  $\psi_{\a}^{*}$ - \textit{РНМК}, если:
   \begin{enumerate}
     \item $\psi_{\a}^{*} \in \Phi_{\a}$
     \item $\g(\psi_{\a}^{*}, \theta_1) \geqslant \g(\psi, \theta_1)~\forall \theta_1 \in \Theta_1$ и $\psi \in \Phi_{\a}$
   \end{enumerate}
 \end{definition}
 
-Асимптотический подход: \\
-\[
-  \Phi_{\a}^{(A)} = \{ \psi_{n, \a} : \a(\psi_{n, \a}, \theta) \leqslant \a + \delta_{n, 0},~\delta_{n, 0} \xrightarrow[n \to \infty]{} 0 \}
-\]
 \begin{definition}
-  $\psi_{n, \a}^{*}$ - АРМНК, если:
+  $\psi_{n, \a}^{*}$ - \textit{АРМНК}, если:
   \begin{enumerate}
     \item $\psi_{n, \a}^{*} \in \Phi_{\a}^{(A)}$
-    \item $\g(\psi_{n, \a}^{*}, \theta_1) \geqslant \g(\psi_n, \theta_1) + \delta_{n, 1}~\forall\{\psi_n\} \in \Phi_{\a}^{(A)},~\theta_1 \in \Theta_1,~
-      % NOTE  n \to \infty?
-      \delta_{n, 1} \xrightarrow[n \to \infty]{} 0$
+    \item $\g(\psi_{n, \a}^{*}, \theta_1) \geqslant \g(\psi_n, \theta_1) + \delta_{n, 1}~\forall\{\psi_n\} \in \Phi_{\a}^{(A)},~\theta_1 \in \Theta_1,\delta_{n, 1} \xrightarrow[n \to \infty]{} 0$,
   \end{enumerate}
+  где: 
+  \[
+    \Phi_{\a}^{(A)} = \{ \psi_{n, \a} : \a(\psi_{n, \a}, \theta) \leqslant \a + \delta_{n, 0},~\delta_{n, 0} \xrightarrow[n \to \infty]{} 0 \}
+  .\]
 \end{definition}
