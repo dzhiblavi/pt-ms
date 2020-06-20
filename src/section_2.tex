@@ -7,14 +7,14 @@
 
 \begin{theorem}(Яков, Бернулли)
 
-	Пусть имеется $\xi_i \sim \xi$ -- последовательность одинаково
+    Пусть имеется $\xi_i \sim \xi \sim B(p)$ -- последовательность одинаково
 	распределенных и попарно независимых случайных величин. Пусть
 	\[
 		\overline{\xi}_n = \frac{1}{n} \sum_{i = 1}^n{\xi_n} = \frac{k_n}{n}
 	.\]
 	Тогда
 	\[
-		\overline{\xi}_n \underset{n \to +\infty}{\rcon} p
+		\overline{\xi}_n \underset{P}{\Lra} p
 	.\]
 \end{theorem}
 
@@ -43,8 +43,8 @@
 		E(\hat{p}) = p,
 	\]
 	\[
-		\sqrt{n} \cdot (\hat{p} - p) = Y_n \xrightarrow[]{P_{n, \theta}} Y
-	\sim N(0, \Delta^2(p)),~ \Delta^2(p) = p(1 - p)
+		\sqrt{n} \cdot (\hat{p} - p) = Y_n \xrightarrow[n \to +\infty]
+        {P_{n, \theta}} Y \sim N(0, \Delta^2(p)),~ \Delta^2(p) = p(1 - p)
 	.\]
 \end{theorem}
 \begin{proof}

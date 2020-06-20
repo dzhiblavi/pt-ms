@@ -6,7 +6,7 @@
 	\textit{Гипотезой} называется множесто предполагаемых зафиксированных значений
 	некоторого подмножества неизвестных параметров:
 	\[
-		H: \theta \in \Theta_{H} \subseteq \Theta
+		H \subseteq \Theta
 	.\]
 \end{definition}
 
@@ -27,7 +27,7 @@
 	Правило принятия или отклонения основной гипотезы $H_0$ называют
 	\textit{тестом (критерием)} проверки гипотезы:
 	\[
-		\varphi(\cX): \cX_{n} \to \{0, 1\}
+		\psi \colon \cX_{n} \to \{0, 1\}
 	.\]
 	При этом:
 	\begin{itemize}
@@ -38,13 +38,13 @@
 \end{definition}
 
 \begin{definition}
-	Случайная величина $L(\overline{X}): X_n \to \R$ называется
+	Случайная величина $L\colon \cX_n \to \R$ называется
 	\textit{тестовой статистикой}, если она служит порогом для правила принятия
 	или отклонения основной гипотезы:
 	\[
-		\varphi(\overline{X}) = \begin{cases}
-			0,~ L(\overline{X}) < T \> (H_0) \\
-			1,~ L(\overline{X}) \geqslant T \> (H_0)
+        \psi(X^{(n)}) = \begin{cases}
+            0,~ L(X^{(n)}) < T \> (H_0) \\
+            1,~ L(X^{(n)}) \geqslant T \> (H_0)
 		\end{cases}
 	.\]
 	Где $T$ называют \textit{порогом принятия решения}.

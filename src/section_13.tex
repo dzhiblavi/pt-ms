@@ -11,12 +11,12 @@
 
 Определим тестовую статистику:
 \[
-  L(\overline{X}) = \sqrt{n} \rho_{\infty}(F_0, F_n)
+    L(X^{(n)}) = \sqrt{n} \rho_{\infty}(F_0, F_n)
 .\]
 
-По th. Колмогорова:
+По теореме Колмогорова:
 \[
-  P(L(\overline{X}) < z) \xrightarrow[n \to \infty]{} \mathcal{K}(z)
+    P(L(X^{(n)}) < z) \xrightarrow[n \to \infty]{} \mathcal{K}(z)
 ,\]
 где $\mathcal{K}$ -- распределение Колмогорова.
 Тогда порогом принятия решения при уровне значимости $\alpha$ является
@@ -25,7 +25,7 @@
 
 Таким образом, определим тест:
 \[
-  \varphi(\overline{X}) = \begin{cases}
+    \psi(X^{(n)}) = \begin{cases}
     0,~ \sqrt{n} \rho_{\infty}(F_0, F_n) < u_{1 - \alpha}\\
     1,~ \sqrt{n} \rho_{\infty}(F_0, F_n) \geqslant u_{1 - \alpha}
   \end{cases}
@@ -35,25 +35,25 @@
 
 Определим тестовую статистику:
 \[
-  L(\overline{X}) = \sqrt{n} \rho_{2}(F_0, F_n)
+    L(X^{(n)}) = \sqrt{n} \rho_{2}(F_0, F_n)
 .\]
 
 По th. Мизеса-Смирнова:
 \[
-  P(L(\overline{X}) < z) \xrightarrow[n \to \infty]{} \mathcal{S}(z)
+    P(L(X^{(n)}) < z) \xrightarrow[n \to \infty]{} \mathcal{S}(z)
 ,\]
 где $\mathcal{S}$ -- распределение Мизеса-Смирнова.
 Тогда порогом принятия решения при уровне значимости $\alpha$ является
 квантиль распределения Мизеса-Смирнова порядка $1 - \alpha$
-(далее $s_{1 - \alpha}$).\\
+(далее $\omega_{1 - \alpha}$).\\
 
 %:: NOTE a:zagretdinov
 %:: NOTE почему выше L(X) - это ро_2, а здесь - ро_2 ^2 ?
 Таким образом, определим тест:
 \[
-  \varphi(\overline{X}) = \begin{cases}
-    0,~ \sqrt{n} \rho_{2}^{2}(F_0, F_n) < w_{1 - \alpha}\\
-    1,~ \sqrt{n} \rho_{2}^{2}(F_0, F_n) \geqslant w_{1 - \alpha}
+    \psi(X^{(n)}) = \begin{cases}
+    0,~ \sqrt{n} \rho_{2}^{2}(F_0, F_n) < \omega_{1 - \alpha}\\
+    1,~ \sqrt{n} \rho_{2}^{2}(F_0, F_n) \geqslant \omega_{1 - \alpha}
   \end{cases}
 .\]
 

@@ -25,7 +25,7 @@
 
   Пусть $\cF$ -- множество функций распределения.
   Тогда $\forall F_x(t) \in \cF$ c вероятностью 1 справедливо предельное
-  неравенство:
+  соотношение:
   \[
     \rho_{\infty} (F_n, F_x) \xlongrightarrow[n \to \infty]{} 0
   .\]
@@ -41,7 +41,7 @@
 Пусть $\cF_c$ -- множество всех непрерывных функций распределения.
 
 \begin{theorem}(Колмогоров)
-
+    Пусть $F_x \in \cF_c$. Тогда
   \[
     P_{n, F}(\sqrt{n} \rho_{\infty} (F_n, F_x) < u)
     \xlongrightarrow[n \to \infty]{} \mathcal{K}(u) = \begin{cases}
@@ -108,3 +108,4 @@
     \xlongrightarrow[]{\text{th. Колмогорова}} \mathcal{K}(u_{\gamma}) = \gamma
   .\end{align*}
 \end{proof}
+

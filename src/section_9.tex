@@ -3,6 +3,8 @@
 %:: NOTE a:dolzhanskii
 %:: NOTE check
 
+\subsection{Ошибки I и II рода}
+
 \begin{definition}
   \textit{Ошибкой I рода} называют отклонение основной гипотезы, в то
   время как она была верна.
@@ -16,7 +18,7 @@
 \begin{definition}
   $\alpha$ называют \textit{вероятностью ошибки I рода}:
   \[
-    \alpha(\varphi, \theta) \defeq P_{\theta}(\cX_{n, 1}),~
+    \alpha(\psi, \theta) \defeq P_{\theta}(\cX_{n, 1}),~
     \theta \in \Theta_{H_0}
   .\]
 \end{definition}
@@ -26,14 +28,14 @@
   I рода по всем возможным наблюдаемым значениям неизвестных параметров,
   отвечающих основной гипотезе:
   \[
-    \alpha(\varphi) \defeq \sup_{\theta \in \Theta_{H_0}} \alpha(\varphi, \theta)
+    \alpha(\psi) \defeq \sup_{\theta \in \Theta_{H_0}} \alpha(\psi, \theta)
   .\]
 \end{definition}
 
 \begin{definition}
   $\beta$ называют \textit{вероятностью ошибки II рода}:
   \[
-    \beta(\varphi, \theta) \defeq P_{\theta}(\cX_{n, 0}),~
+    \beta(\psi, \theta) \defeq P_{\theta}(\cX_{n, 0}),~
     \theta \in \Theta_{H_1}
   .\]
 \end{definition}
@@ -41,18 +43,20 @@
 \begin{definition}
   \textit{Мощностью теста} называют следующую величину:
   \[
-    \gamma(\varphi, \theta) \defeq 1 - \beta(\varphi, \theta)
+    \gamma(\psi, \theta) \defeq 1 - \beta(\psi, \theta)
   .\]
 \end{definition}
 
-\paragraph{Подход Неймана-Пирсона.}\mbox{}\\
+\subsection{Подход Неймана-Пирсона}
+
 Зафиксируем $\alpha \in (0, 1)$ (обычно выбирают малое значение). Будем считать
-это значение минимальной допустимой величиной ошибки I рода (\textit{допустимый
+это значение максимальной допустимой величиной ошибки I рода (\textit{допустимый
 уровень значимости}).\\
 Рассмотрим множество всех тестов таких, что:
 \[
-  \overline{\Phi}_\alpha = \{\varphi = \varphi(x) \mid \alpha(\varphi) \leqslant
-  \alpha\}
+  \overline{\Psi}_\alpha = \{\,\psi = \psi(x) \mid \alpha(\psi) \leqslant
+  \alpha\,\}
 .\]
 Среди этих тестов выбирается тест с минимальным значением $\beta$.\\
 В асимптотических задачах ограничения накладываются на предельные значения.
+

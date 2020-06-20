@@ -12,7 +12,7 @@
   Случайную величину $\overline{X}_n = EY =
   \sum\limits_{i = 1}^{n} X_{(i)} \cdot \frac{1}{n} =
   \frac{1}{n} \sum\limits_{j = 1}^{n} X_j$ называют \textit{выборочным средним}
-  некоторой выборки $X_{[n]}$ из генеральной совокупности $X$.
+  некоторой выборки $X^{(n)}$ из генеральной совокупности $X$.
 \end{definition}
 
 Выборочное среднее является выборочной точечной оценкой $EX$.
@@ -51,15 +51,13 @@
 
 \end{itemize}
 
-
-
 \subsection{Выборочная дисперсия}
 
 \begin{definition}
-  Случайную величину $S^2_n = D(X_{[n]}) =
+  Случайную величину $S^2_n = D(X^{(n)}) =
   \sum\limits_{i = 1}^{n} (X_{(i)} - EY)^2 \cdot \frac{1}{n} =
   \frac{1}{n} \sum\limits_{i = 1}^{n}(X_i - \overline{X}_n)^2$ называют
-  \textit{выборочной дисперсией} некоторой выборки $X_{[n]}$ из генеральной
+  \textit{выборочной дисперсией} некоторой выборки $X^{(n)}$ из генеральной
   совокупности $X$.
 \end{definition}
 
@@ -80,7 +78,7 @@
     &\Rightarrow E_X(\overline{X}^2_n) =
     D_X(\overline{X}_n) + (E_x(\overline{X}_n))^2 = \frac{DX}{n}\\
     &\Rightarrow E_X S^2_n =
-    E_X(\frac{1}{n} \sum\limits_{i = 1}^{n} X^2_i - \overline{X}^2_i) =
+    E_X\parens*{\frac{1}{n} \sum\limits_{i = 1}^{n} X^2_i - \overline{X}^2_i} =
     \frac{1}{n} n E(X^2) - \frac{DX}{n} = DX - \frac{DX}{n} =
     \frac{n - 1}{n} DX
   .\end{align*}
@@ -88,8 +86,6 @@
   \item Выборочная дисперсия является \textit{асимптотически нормальной}
   оценкой $DX$ -- \textit{без доказательства}.
 \end{itemize}
-
-
 
 \subsection{Несмещенная выборочная дисперсия}
 \begin{definition}
@@ -159,7 +155,7 @@ $\Delta^2 = E_x(Z^2) - (E_x(Z))^2$.
 \subsection{Выборочная медиана}
 
 \begin{definition}
-  \textit{Медианой $t_0$} случайной величины $X$ ($med(x)$) называют такое значение
+  \textit{Медианой $t_0$} случайной величины $X$ ($\median(x)$) называют такое значение
   аргумента функции распределения $F_x(t)$, что для него выполняются
   неравенства:
   \[
@@ -174,9 +170,9 @@ $\Delta^2 = E_x(Z^2) - (E_x(Z))^2$.
 \begin{definition}
   Пусть $X_{(1)} \leqslant X_{(2)} \leqslant \ldots \leqslant X_{(n)}$ --
   упорядоченная выборка (вариационный ряд), тогда \textit{выборочной медианой
-  $med_n$} называется следующая случайная величина:
+  $\median_n$} называется следующая случайная величина:
   \[
-    med_n = \begin{cases}
+    \median_n = \begin{cases}
       X_{(k)} = X_{\frac{n - 1}{2}},~ \text{при}~ n = 2k - 1\\
       \frac{X_{(k)} + X_{(k + 1)}}{2},~ \text{при}~ n = 2k
     \end{cases}
@@ -188,7 +184,7 @@ $\Delta^2 = E_x(Z^2) - (E_x(Z))^2$.
 и $T = \{t: 0 < F_X(t) < 1\}$. Если $f_X(t)$ непрерывна и положительна при
 $t \in T$, то плотность распределения случайной величины $Y - f_Y(t)$, где
 \[
-  Y = 2 \sqrt{n} f_X(t_0) (med_n - t_0),~ t_0 = med(X)
+  Y = 2 \sqrt{n} f_X(t_0) (\median_n - t_0),~ t_0 = \median(X)
 \]
 при $n \to \infty$ стремится к $f_{N(0, 1)}(t) = \frac{1}{\sqrt{2 \pi}}
 \exp{-\frac{t^2}{2}}$, а
@@ -198,14 +194,14 @@ $t \in T$, то плотность распределения случайной
 .\]
 \begin{itemize}
   \item Следовательно, выборочная медиана является \textit{состоятельной}
-  оценкой $med(X)$.
+  оценкой $\median(X)$.
   \item Также видно, что выборочная медиана является \textit{асимптотически
-  нормальной} оценкой $med(x)$ с асимптотической дисперсией
+  нормальной} оценкой $\median(x)$ с асимптотической дисперсией
   $\Delta^2 = \frac{1}{r f^2_X(t_0)}$.
   \item Выборочная медиана является \textit{$\sqrt{n}$-несмещенной} оценкой
-  $med(X)$. То есть:
+  $\median(X)$. То есть:
   \[
-    \sqrt{n} b_{n, \theta} (med_n) = \sqrt{n} (E_x(med_n) - med(X))
+    \sqrt{n} b_{n, \theta} (\median_n) = \sqrt{n} (E_x(\median_n) - \median(X))
     \xrightarrow[n \to \infty]{} 0
   .\]
 \end{itemize}
