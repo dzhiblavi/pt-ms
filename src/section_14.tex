@@ -29,17 +29,17 @@ $Y$, имеющей следующий ряд распределения:
 В основе выборочного метода лежит идея:
 любую характеристику генеральной совокупности $X$ оценивать при помощи соответствующей характеристики случайной величины $Y$. Естественно полученные таким образом оценки нужно изучать, проверять их свойства. С точки зрения квадратического риска они не всегда являются лучшими в соответствующем классе распределений.
 
-\subsection{Асимптотическая нормальность, свойства асимптотической нормальности оценок}
+\subsection{Асимптотическая нормальность}
 
 \begin{definition}
     Последовательность оценок $\hat{g}_n$ характеристики $g(\theta)$ называется
-    \textit{асимптотически нормальной с асимптотической дисперсией} 
-    $\Delta^2(\theta) 
-    \textgreater 0$, если случайная величина $Y_n = \sqrt{n}(\hat{g}_n - 
-    g(\theta))$ сходится по $P_{n, \theta}$ - распределению к нормальной 
+    \textit{асимптотически нормальной с асимптотической дисперсией}
+    $\Delta^2(\theta)
+    \textgreater 0$, если случайная величина $Y_n = \sqrt{n}(\hat{g}_n -
+    g(\theta))$ сходится по $P_{n, \theta}$ - распределению к нормальной
     случайной величине $Y$ с нулевым средним и дисперсией $\Delta^2(\theta)$:
     \begin{equation}
-        Y_n \xrightarrow[n \to \infty]{P_{n, \theta}} Y \sim 
+        Y_n \xrightarrow[n \to \infty]{P_{n, \theta}} Y \sim
         N(0, \Delta^2(\theta))\label{eq:1}
     \end{equation}
 \end{definition}
@@ -48,89 +48,97 @@ $Y$, имеющей следующий ряд распределения:
 \[
     \hat{g}_n = g(\theta) + \frac{Y_n}{\sqrt{n}}, где Y_n \xrightarrow[n \to \infty]{P_{n, \theta}} Y \sim N(0, \Delta^2(\theta))
 ,\] то есть
-$\hat{g}_n - g(\theta)$ - отклонение оценки от неизвестного значения 
-оцениваемой характеристики имеет приближенно нормальное распределение 
-с нулевым средним и дисперсией $\frac{\Delta^2(\theta)}{n}$.
+$\hat{g}_n - g(\theta)$ — отклонение оценки от неизвестного значения
+оцениваемой характеристики имеет приближенно нормальное распределение
+с нулевым средним и дисперсией $\Delta^2(\theta)/n$.
 
 \begin{definition}
     Величина $\Delta(\theta) > 0$ называется \textit{нормирующим множителем}.
 \end{definition}
 
+\subsection{Построение асимптотического доверительного интервала}
+  Из асимптотической нормальности имеем
+    \[
+        P_{n, \theta}\parens*{\frac{Y_n}{\Delta(\theta)} < t}
+        \xrightarrow[n \to +\infty]{P_{n, \theta}} F_{N(0, 1)}(t)
+    .\]
+    Отсюда оценим вероятность:
+    \[
+        P_{n, \theta}\parens*{|\hat{g}_n - g(\theta)| <
+        T_{\frac{1 + \g}{2}}\frac{\Delta(\theta)}{\sqrt{n}}} \xrightarrow[n \to \infty]{} 2 \Phi(T_{\frac{1 + \g}{2}}) - 1 = \gamma
+    .\]
+    Здесь $\Phi$ -- функция распределения стандартного нормального закона, $\g$ -- надежность, $T_{\frac{1 + \g}{2}}$ -- $(1 + \g)/2$ - квантиль $N(0, 1)$. Пусть
+    \[
+        \delta_n = T_{\frac{1 + \g}{2}} \frac{\Delta(\theta)}{\sqrt{n}}
+    .\]
+    Получается, что
+    \[
+        (\hat{g}_n - \delta_n, \hat{g}_n + \delta_n)
+    \]
+    есть асимтотический доверительный интервал надежности $\g$.
+
+\subsection{Свойства асимптотической нормальности оценок}
+
 \begin{proposition}
-    Для асимптотически нормальной оценки $\hat{g}_n$ выполнено:
+    Для асимптотически нормальной оценки $\hat{g}_n$, при условии следующей сходимости моментов второго порядка:
+    \begin{equation}
+      E_{n, \theta}(Y_n^2) \xrightarrow[n \to \infty]{} E(Y^2) =
+      \Delta^2(\theta)\label{eq:2},
+    \end{equation}
+    выполнено:
     \begin{itemize}
         \item $\hat{g}_n$ -- $\sqrt{n}$-несмещенная оценка.
-        \item $nD_{n, \theta}(\hat{g}_n) = D_{n, \theta}(Y_n) 
+        \item $nD_{n, \theta}(\hat{g}_n) = D_{n, \theta}(Y_n)
             \xrightarrow[n \to \infty]{} \Delta^2(\theta)$
-        \item $nR_2(\hat{g}_n, \theta) = E_{n, \theta}(Y^2_n) 
+        \item $nR_2(\hat{g}_n, \theta) = E_{n, \theta}(Y^2_n)
             \xrightarrow[n \to \infty]{} \Delta^2(\theta)$
     \end{itemize}
 \end{proposition}
 \begin{proof}
     \enewline
-    \begin{itemize}
-        \item Построим доверительный интервал. Из асимптотической нормальности 
-            имеем
-            \[
-                P_{n, \theta}\parens*{\frac{Y_n}{\Delta(\theta)} < t}
-                \xrightarrow[n \to +\infty]{P_{n, \theta}} F_{N(0, 1)}(t)
-            .\]
-            Отсюда оценим вероятность:
-            \[
-                P_{n, \theta}\parens*{|\hat{g}_n - g(\theta)| < 
-                \frac{T(\Delta(\theta))}{\sqrt{n}}} \to 2 \Phi(T) - 1 = \gamma
-            .\]
-            Здесь $\Phi$ - функция распределения стандартного нормального закона
-            , $T = \frac{1 + \g}{2}$ -- квантиль $N(0, 1)$. Пусть
-            \[
-                \delta_n = T_{\frac{1 + \g}{2}} \frac{\Delta(\theta)}{\sqrt{n}}
-            .\]
-            Получается, что
-            \[
-                (\hat{g}_n - \delta_n, \hat{g}_n + \delta_n)
-            \]
-            есть асимтотический доверительный интервал надежности $\g$.
-        \item 
-    \end{itemize}
-    Если при этом $E_{n, \theta}(Y_n^2) \xrightarrow[n \to \infty]{} E(Y^2) = 
-    \Delta^2(\theta)$ (тогда $E_{n, \theta}(Y_n) \xrightarrow[]{} E(Y) = 0)$, \\
-    то $E_{n, \theta}(Y_n) = \sqrt{n}(E_{n, \theta}\hat{g}_n - g(\theta)) = 
-    \sqrt{n}b_{n, \theta}(\hat{g}_n) \xrightarrow[n \to \infty]{} 0$
-    т. е. смещение стремится к нулю быстрее, чем $\frac{1}{\sqrt{n}} - 
-    \sqrt{n}$ несмещ $\hat{g}_n$.
+      Пользуясь сходимостью моментов второго порядка $\ref{eq:2}$, имеем:
     \[
-        D_{n, \theta}(Y_n) = E_{n, \theta}(Y_n^2) - (E_{n, \theta}(Y_n))^2 
+       E_{n, \theta}(Y_n) \xrightarrow[]{} E(Y) = 0
+    \]
+    \[
+       E_{n, \theta}(Y_n) = \sqrt{n}(E_{n, \theta}\hat{g}_n - g(\theta)) =
+       \sqrt{n}b_{n, \theta}(\hat{g}_n) \xrightarrow[n \to \infty]{} 0
+     % \end{align*}
+    ,\]
+    то есть смещение стремится к нулю быстрее, чем $1/\sqrt{n}$, получается, что $\hat{g}_n$ -- $\sqrt{n}$-несмещенная оценка.
+    \[
+        D_{n, \theta}(Y_n) = E_{n, \theta}(Y_n^2) - (E_{n, \theta}(Y_n))^2
         \xrightarrow[n \to \infty]{} \Delta^2(\theta)
     .\]
     \[
         D_{n, \theta}(\sqrt{n}(\hat{g}_n - g(\theta))) = nD_{n, \theta}
         (\hat{g}_n)
-    ,\] -- инвариантна относительно сдвига и вынесение $\sqrt{n}$ из-под знака 
-    дисперсии, т. е.
+    \] пользуемся инвариантностью дисперсии относительно сдвига на $g(\theta)$ и выносим $\sqrt{n}$ из-под знака
+    дисперсии.
     \[
         nD_{n, \theta}(\hat{g}_n) \xrightarrow[]{} \Delta^2(\theta)
     \]
     \[
         \sqrt{n}\sigma_{n, \theta}(\hat{g}_n) \xrightarrow[]{} \Delta(\theta)
     ,\]
-    средне квадратическое отклонение имеет порядок 
-    $\frac{\Delta(\theta)}{\sqrt{n}}$.
+    получили, что среднеквадратическое отклонение имеет порядок
+    $\Delta(\theta)/\sqrt{n}$.
+    Более того,
     \[
-        nR_2(\hat{g}_n, \theta) = n(b_{n, \theta}^2(\hat{g}_n) + 
+        nR_2(\hat{g}_n, \theta) = n(b_{n, \theta}^2(\hat{g}_n) +
         D_{n, \theta}(\hat{g}_n)) \xrightarrow[]{} 0 + \Delta^2(\theta)
     ,\]
-    т.е. для асимптотически нормальных оценок дисперсия и квадратический 
-    риск в асимптотике совпадают и равны $\frac{\Delta^2(\theta)}{n}$.
+    то есть для асимптотически нормальных оценок дисперсия и квадратический
+    риск в асимптотике совпадают и равны $\Delta^2(\theta)/n$.
 \end{proof}
 
 %:: NOTE check me
 \begin{proposition}
-    Оценки $S^2_n$ и $\sigma^2_n$ - асимптотически нормальны с 
-    $\Delta^2(X) = E(X - EX)^4 - D^2(X)$, если существуют четвертые 
-    центральные моменты, т.е. 
+    Оценки $S^2_n$ и $\sigma^2_n$ - асимптотически нормальны с
+    $\Delta^2(X) = E(X - EX)^4 - D^2(X)$ (при условии существования четвертых
+    центральных моментов):
     \[
-      \frac{\sigma^2_n - D(X)}{\Delta(X)}\sqrt{n} 
-      \xrightarrow[n \to \infty]{P_{n, \theta}} Y \sim N(0, 1)  
-    .\] и точность выборочной дисперсии оценивается моментами 4-го порядка.
+      \frac{\sigma^2_n - D(X)}{\Delta(X)}\sqrt{n}
+      \xrightarrow[n \to \infty]{P_{n, \theta}} Y \sim N(0, 1)
+    ,\] а точность выборочной дисперсии оценивается моментами 4-го порядка.
 \end{proposition}
-
